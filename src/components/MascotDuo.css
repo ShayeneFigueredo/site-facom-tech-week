@@ -1,0 +1,149 @@
+.mascot-duo-container {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  display: inline-block;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 25px rgba(124, 58, 237, 0.35));
+}
+
+.mascot-duo-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Floating animation for standalone mascots */
+.mascot-float-anim {
+  animation: mascotFloat 4s ease-in-out infinite;
+}
+
+.mascot-float-anim-alt {
+  animation: mascotFloatAlt 4.5s ease-in-out infinite;
+}
+
+/* Dancing animation with rhythmic bounce and tilt */
+.mascot-dance-anim {
+  animation: mascotDance 2.4s ease-in-out infinite alternate;
+}
+
+@keyframes mascotDance {
+  0% {
+    transform: translateY(0px) rotate(-6deg) scale(1);
+  }
+  25% {
+    transform: translateY(-16px) rotate(4deg) scale(1.05);
+  }
+  50% {
+    transform: translateY(0px) rotate(6deg) scale(1);
+  }
+  75% {
+    transform: translateY(-14px) rotate(-4deg) scale(1.04);
+  }
+  100% {
+    transform: translateY(0px) rotate(-6deg) scale(1);
+  }
+}
+
+/* Head bobbing cool tech animation */
+.mascot-headbob-anim {
+  animation: mascotHeadBob 3s ease-in-out infinite;
+}
+
+@keyframes mascotHeadBob {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  20% {
+    transform: translateY(-8px) rotate(-3deg);
+  }
+  40% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  60% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+  80% {
+    transform: translateY(-4px) rotate(-1deg);
+  }
+}
+
+/* Pointing animation */
+.mascot-point-anim {
+  animation: mascotPoint 3.2s ease-in-out infinite alternate;
+}
+
+@keyframes mascotPoint {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-4deg);
+  }
+  100% {
+    transform: translateY(-4px) rotate(2deg);
+  }
+}
+
+@keyframes mascotFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+@keyframes mascotFloatAlt {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(-3deg);
+  }
+}
+
+/* Waving arms keyframes */
+.mascot-arm-waving-left {
+  transform-origin: 35px 95px;
+  animation: waveArmLeft 0.8s ease-in-out infinite alternate;
+}
+
+.mascot-arm-waving-right {
+  transform-origin: 165px 95px;
+  animation: waveArmRight 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes waveArmLeft {
+  0% { transform: rotate(-5deg); }
+  100% { transform: rotate(35deg); }
+}
+
+@keyframes waveArmRight {
+  0% { transform: rotate(5deg); }
+  100% { transform: rotate(-35deg); }
+}
+
+/* Eye Blinking */
+.mascot-eye {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: blink-duo 3.8s infinite;
+}
+
+@keyframes blink-duo {
+  0%, 95%, 98%, 100% { transform: scaleY(1); }
+  96%, 99% { transform: scaleY(0.1); }
+}
+
+/* Disco dancing arms */
+.mascot-disco-arms {
+  transform-origin: 100px 100px;
+  animation: discoArms 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes discoArms {
+  0% { transform: rotate(-8deg); }
+  100% { transform: rotate(8deg); }
+}
+
+
