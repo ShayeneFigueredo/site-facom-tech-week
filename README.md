@@ -107,8 +107,8 @@ Este projeto foi desenvolvido com dedicação e paixão por tecnologia por:
         </a>
       </td>
       <td align="center">
-        <a href="https://github.com/samuelamorim">
-          <img src="https://github.com/samuelamorim.png" width="120px;" alt="Samuel Amorim"/><br />
+        <a href="https://github.com/samuel-famorim">
+          <img src="https://github.com/samuel-famorim.png" width="120px;" alt="Samuel Amorim"/><br />
           <sub><b>Samuel Amorim</b></sub>
         </a>
       </td>
@@ -121,3 +121,4 @@ Este projeto foi desenvolvido com dedicação e paixão por tecnologia por:
 <div align="center">
   <sub>Desenvolvido para a <b>FACOM TechWeek 2026</b> • Faculdade de Computação — Universidade Federal de Uberlândia (UFU)</sub>
 </div>
+
