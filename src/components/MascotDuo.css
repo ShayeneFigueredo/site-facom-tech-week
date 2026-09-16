@@ -135,6 +135,16 @@
   96%, 99% { transform: scaleY(0.1); }
 }
 
+/* Rapid Blinking when user hovers or drags over mascots */
+.mascot-rapid-blink .mascot-eye {
+  animation: blink-rapid 0.35s ease-in-out infinite !important;
+}
+
+@keyframes blink-rapid {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.08); }
+}
+
 /* Disco dancing arms */
 .mascot-disco-arms {
   transform-origin: 100px 100px;
@@ -145,5 +155,6 @@
   0% { transform: rotate(-8deg); }
   100% { transform: rotate(8deg); }
 }
+
 
 

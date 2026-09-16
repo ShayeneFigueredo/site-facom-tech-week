@@ -61,17 +61,24 @@ export default function PartnersBar() {
   ];
 
   return (
-    <section
+    <div
       id="patrocinadores"
       style={{
         position: 'relative',
-        zIndex: 30,
-        marginTop: '0px',
-        paddingTop: '30px',
-        paddingBottom: '3.5rem',
+        zIndex: 10,
+        width: '100%',
+        marginTop: '3.5rem',
+        paddingTop: '20px',
+        paddingBottom: '3rem',
       }}
     >
-      <div className="container">
+      <div
+        style={{
+          width: '100%',
+          maxWidth: '1280px',
+          margin: '0 auto',
+        }}
+      >
         {/* Sponsor Cards Grid */}
         <div
           style={{
@@ -227,6 +234,6 @@ export default function PartnersBar() {
           }
         }
       `}</style>
-    </section>
+    </div>
   );
 }

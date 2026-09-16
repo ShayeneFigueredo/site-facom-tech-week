@@ -1,9 +1,10 @@
 import React from 'react';
 import './MascotDuo.css';
 
-export default function MascotDuo({ className = '' }) {
+export default function MascotDuo({ className = '', isHovered = false, isBlinking = false }) {
+  const blinkingClass = (isHovered || isBlinking) ? 'mascot-rapid-blink' : '';
   return (
-    <div className={`mascot-duo-container ${className}`}>
+    <div className={`mascot-duo-container ${blinkingClass} ${className}`}>
       <svg
         viewBox="0 0 350 200"
         xmlns="http://www.w3.org/2000/svg"

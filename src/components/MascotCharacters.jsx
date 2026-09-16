@@ -404,9 +404,10 @@ export function WeekaCoolShades({ size = 180, animated = true, className = '', s
 }
 
 // 7. Duo with clean heads holding hands (NO mouth, NO antenna, NO nose)
-export default function MascotDuo({ className = '', style = {} }) {
+export default function MascotDuo({ className = '', style = {}, isHovered = false, isBlinking = false }) {
+  const blinkingClass = (isHovered || isBlinking) ? 'mascot-rapid-blink' : '';
   return (
-    <div className={`mascot-duo-container ${className}`} style={style}>
+    <div className={`mascot-duo-container ${blinkingClass} ${className}`} style={style}>
       <svg
         viewBox="0 0 350 200"
         xmlns="http://www.w3.org/2000/svg"

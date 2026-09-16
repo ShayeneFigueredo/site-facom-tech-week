@@ -28,10 +28,9 @@ export default function App() {
       {/* Fixed Navigation Bar */}
       <Navbar onOpenModal={handleOpenModal} />
 
-      {/* Main Banner Hero */}
+      {/* Main Banner Hero & Sponsors */}
       <main>
         <HeroBanner onOpenModal={handleOpenModal} />
-        <PartnersBar />
         <CountdownSection />
         <StatsSection />
         <TracksSection />
