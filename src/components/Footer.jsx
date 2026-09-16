@@ -166,18 +166,21 @@ export default function Footer({ onOpenModal }) {
             <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '1rem' }}>
               Garanta seu ingresso na edição 2026 de 21 a 24 de Outubro.
             </p>
-            <button
-              onClick={onOpenModal}
+            <a
+              href="#ingressos"
               className="btn-primary"
               style={{
                 width: '100%',
                 padding: '0.75rem',
                 fontSize: '0.9rem',
                 borderRadius: '0.5rem',
+                textDecoration: 'none',
+                display: 'inline-flex',
+                justifyContent: 'center',
               }}
             >
               <span>Garantir Inscrição</span>
-            </button>
+            </a>
           </div>
         </div>
 

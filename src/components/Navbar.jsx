@@ -111,17 +111,20 @@ export default function Navbar({ onOpenModal }) {
           }}
           className="desktop-actions"
         >
-          <button
-            onClick={onOpenModal}
+          <a
+            href="#ingressos"
             className="btn-primary"
             style={{
               padding: '0.65rem 1.6rem',
               fontSize: '0.9rem',
               borderRadius: '9999px',
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
             }}
           >
             <span>Inscreva-se</span>
-          </button>
+          </a>
         </div>
 
         {/* Mobile Menu Toggle Button */}
@@ -174,21 +177,22 @@ export default function Navbar({ onOpenModal }) {
                 {link.name}
               </a>
             ))}
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenModal();
-              }}
+            <a
+              href="#ingressos"
+              onClick={() => setMobileMenuOpen(false)}
               className="btn-primary"
               style={{
                 marginTop: '0.5rem',
                 width: '100%',
                 padding: '0.85rem',
                 borderRadius: '0.75rem',
+                textDecoration: 'none',
+                display: 'inline-flex',
+                justifyContent: 'center',
               }}
             >
               <span>Garantir Minha Vaga</span>
-            </button>
+            </a>
           </div>
         </div>
       )}

@@ -198,8 +198,8 @@ export default function HeroBanner({ onOpenModal }) {
               paddingTop: '0.75rem',
             }}
           >
-            <button
-              onClick={onOpenModal}
+            <a
+              href="#ingressos"
               style={{
                 background: '#ffffff',
                 color: '#060d24',
@@ -215,12 +215,13 @@ export default function HeroBanner({ onOpenModal }) {
                 alignItems: 'center',
                 gap: '0.65rem',
                 fontFamily: 'var(--font-heading)',
+                textDecoration: 'none',
               }}
               className="monumental-btn-primary"
             >
               <span>Garantir Ingresso</span>
               <ArrowRight size={18} />
-            </button>
+            </a>
 
             <a
               href="#programacao"

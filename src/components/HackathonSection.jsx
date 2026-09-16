@@ -102,17 +102,21 @@ export default function HackathonSection({ onOpenModal }) {
                 </div>
               </div>
 
-              <button
-                onClick={onOpenModal}
+              <a
+                href="#ingressos"
                 className="btn-primary"
                 style={{
                   padding: '0.9rem 2.2rem',
                   fontSize: '1.05rem',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.65rem',
                 }}
               >
                 <span>Inscrever Meu Time no Hackathon</span>
                 <ArrowRight size={18} />
-              </button>
+              </a>
             </div>
 
             {/* Right Prizes Cards */}
