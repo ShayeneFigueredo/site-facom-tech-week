@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BrainCircuit,
   ShieldCheck,
@@ -11,6 +11,52 @@ import {
 } from 'lucide-react';
 
 export default function TracksSection() {
+  const wordsList = [
+    'TRILHAS',
+    'PALESTRAS',
+    'MINICURSOS',
+    'WORKSHOPS',
+    'HACKATHON',
+    'RECRUTAMENTO',
+    'MÚSICA',
+    'BRINDES',
+    'NETWORKING',
+  ];
+
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [clockProgress, setClockProgress] = useState(0);
+  const [isFading, setIsFading] = useState(false);
+
+  useEffect(() => {
+    const roundDuration = 3000; // 3 seconds per clock round
+    const intervalTime = 30; // 30ms updates for 60fps clock hand sweep
+    const step = intervalTime / roundDuration;
+
+    const timer = setInterval(() => {
+      setClockProgress((prev) => {
+        if (prev + step >= 1) {
+          setIsFading(true);
+          setTimeout(() => {
+            setCurrentWordIndex((oldIdx) => (oldIdx + 1) % wordsList.length);
+            setIsFading(false);
+          }, 180);
+          return 0;
+        }
+        return prev + step;
+      });
+    }, intervalTime);
+
+    return () => clearInterval(timer);
+  }, [wordsList.length]);
+
+  const currentWord = wordsList[currentWordIndex];
+
+  const getFontSize = (word) => {
+    if (word.length > 10) return 'clamp(1.05rem, 1.7vw, 1.45rem)';
+    if (word.length > 8) return 'clamp(1.25rem, 2.1vw, 1.75rem)';
+    return 'clamp(1.5rem, 2.6vw, 2.2rem)';
+  };
+
   const tracksList = [
     {
       id: 'ia',
@@ -197,7 +243,7 @@ export default function TracksSection() {
           </div>
         </div>
 
-        {/* Central Frosted-Glass Circle with Soft Blur Over the Passing Words */}
+        {/* Central Frosted-Glass Circle with Clock Sweep Radar & Dynamic Word */}
         <div
           style={{
             position: 'absolute',
@@ -207,36 +253,100 @@ export default function TracksSection() {
             width: 'clamp(200px, 22vw, 260px)',
             height: 'clamp(200px, 22vw, 260px)',
             borderRadius: '50%',
-            background: 'rgba(255, 255, 255, 0.04)',
-            border: '2px solid rgba(0, 210, 255, 0.5)',
-            backdropFilter: 'blur(14px)',
-            WebkitBackdropFilter: 'blur(14px)',
+            background: 'rgba(10, 15, 38, 0.78)',
+            border: '2px solid rgba(0, 210, 255, 0.35)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             textAlign: 'center',
             padding: '1.5rem',
             boxShadow:
-              '0 25px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 210, 255, 0.25), inset 0 1px 3px rgba(255, 255, 255, 0.35)',
+              '0 25px 60px rgba(0, 0, 0, 0.8), 0 0 45px rgba(0, 210, 255, 0.25), inset 0 1px 3px rgba(255, 255, 255, 0.35)',
             zIndex: 15,
             pointerEvents: 'none',
           }}
           className="center-lens-circle"
         >
-          {/* Center Title: Only TRILHAS, Crisp without text glow */}
+          {/* SVG Clock Sweep Ring & Hand Tip Dot */}
+          <svg
+            viewBox="0 0 100 100"
+            style={{
+              position: 'absolute',
+              inset: '-4px',
+              width: 'calc(100% + 8px)',
+              height: 'calc(100% + 8px)',
+              transform: 'rotate(-90deg)',
+              overflow: 'visible',
+            }}
+          >
+            <defs>
+              <linearGradient id="clockSweepGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#00f0ff" />
+                <stop offset="50%" stopColor="#c084fc" />
+                <stop offset="100%" stopColor="#ec4899" />
+              </linearGradient>
+            </defs>
+
+            {/* Background Track Circle */}
+            <circle
+              cx="50"
+              cy="50"
+              r="47"
+              fill="none"
+              stroke="rgba(255, 255, 255, 0.08)"
+              strokeWidth="2.5"
+            />
+
+            {/* Clock Sweep Progress Arc */}
+            <circle
+              cx="50"
+              cy="50"
+              r="47"
+              fill="none"
+              stroke="url(#clockSweepGradient)"
+              strokeWidth="3.5"
+              strokeLinecap="round"
+              strokeDasharray={295.3}
+              strokeDashoffset={295.3 * (1 - clockProgress)}
+              style={{
+                filter: 'drop-shadow(0 0 6px #00d2ff) drop-shadow(0 0 12px #c084fc)',
+              }}
+            />
+
+            {/* Clock Hand Tip Glowing Dot */}
+            {clockProgress > 0.01 && (
+              <circle
+                cx={50 + 47 * Math.cos((clockProgress * 360 * Math.PI) / 180)}
+                cy={50 + 47 * Math.sin((clockProgress * 360 * Math.PI) / 180)}
+                r="3.2"
+                fill="#ffffff"
+                style={{
+                  filter: 'drop-shadow(0 0 8px #00f0ff) drop-shadow(0 0 14px #ffffff)',
+                }}
+              />
+            )}
+          </svg>
+
+          {/* Center Title: Dynamic Cycling Word */}
           <h3
             style={{
-              fontSize: 'clamp(1.6rem, 2.6vw, 2.3rem)',
+              fontSize: getFontSize(currentWord),
               fontWeight: 900,
               color: '#ffffff',
               fontFamily: 'var(--font-heading)',
-              letterSpacing: '0.14em',
+              letterSpacing: '0.1em',
               textTransform: 'uppercase',
               lineHeight: 1.1,
               margin: 0,
+              opacity: isFading ? 0 : 1,
+              transform: isFading ? 'scale(0.85)' : 'scale(1)',
+              transition: 'opacity 0.18s ease, transform 0.18s ease',
+              textShadow: '0 0 20px rgba(0, 210, 255, 0.6), 0 0 35px rgba(192, 132, 252, 0.4)',
             }}
           >
-            TRILHAS
+            {currentWord}
           </h3>
         </div>
       </div>

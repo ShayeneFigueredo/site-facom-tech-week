@@ -5,11 +5,10 @@ export default function StatsSection() {
   const sectionRef = useRef(null);
   const targetLetters = ['T', 'E', 'C', 'H', 'W', 'E', 'E', 'K'];
 
-  // Scroll Progress (0 to 1)
-  const [scrollProgress, setScrollProgress] = useState(0);
+  // Typing state
   const [activeKeyIndex, setActiveKeyIndex] = useState(-1);
   const [isFullyTyped, setIsFullyTyped] = useState(false);
-  const [autoPlay, setAutoPlay] = useState(false);
+  const [hasStartedAnimation, setHasStartedAnimation] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -21,100 +20,53 @@ export default function StatsSection() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Track scroll position inside this scroll area
+  // Trigger slow typing animation when user arrives at the section
   useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
+    const node = sectionRef.current;
+    if (!node) return;
 
-      const rect = sectionRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      const isMobileView = window.innerWidth <= 768;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting && !hasStartedAnimation) {
+          setHasStartedAnimation(true);
+          startSlowTyping();
+        }
+      },
+      { threshold: 0.2 }
+    );
 
-      if (isMobileView) {
-        // Mobile-only: Starts typing as soon as section enters viewport and finishes smoothly
-        const entryPoint = windowHeight * 0.85;
-        const current = entryPoint - rect.top;
-        const travelDistance = Math.min(windowHeight * 0.40, 280);
-        const progress = Math.min(Math.max(current / travelDistance, 0), 1);
-        setScrollProgress(progress);
-      } else {
-        // Desktop (exact original restored calculation)
-        const totalHeight = rect.height - windowHeight;
-        if (totalHeight <= 0) return;
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [hasStartedAnimation]);
 
-        const current = -rect.top;
-        const progress = Math.min(Math.max(current / totalHeight, 0), 1);
-        setScrollProgress(progress);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Map scroll progress to typed letters count (0 to 8)
-  useEffect(() => {
-    if (autoPlay) return;
-
-    if (isMobile) {
-      // Mobile typing range
-      if (scrollProgress <= 0.0) {
-        setActiveKeyIndex(0);
-        setIsFullyTyped(false);
-      } else if (scrollProgress >= 0.85) {
-        setActiveKeyIndex(7);
-        setIsFullyTyped(true);
-      } else {
-        const step = 0.85 / targetLetters.length;
-        const index = Math.floor(scrollProgress / step);
-        setActiveKeyIndex(Math.min(Math.max(index, 0), 7));
-        setIsFullyTyped(index >= 7);
-      }
-    } else {
-      // Desktop (exact original typing range restored)
-      const startProgress = 0.05;
-      const endProgress = 0.65;
-
-      if (scrollProgress < startProgress) {
-        setActiveKeyIndex(-1);
-        setIsFullyTyped(false);
-      } else if (scrollProgress >= endProgress) {
-        setActiveKeyIndex(7);
-        setIsFullyTyped(true);
-      } else {
-        const step = (endProgress - startProgress) / targetLetters.length;
-        const index = Math.floor((scrollProgress - startProgress) / step);
-        setActiveKeyIndex(Math.min(Math.max(index, 0), 7));
-        setIsFullyTyped(index >= 7);
-      }
-    }
-  }, [scrollProgress, autoPlay, isMobile]);
-
-  // Autoplay function
-  const handleAutoPlay = () => {
-    setAutoPlay(true);
+  const startSlowTyping = () => {
     setActiveKeyIndex(0);
     setIsFullyTyped(false);
 
     let current = 0;
     const interval = setInterval(() => {
-      setActiveKeyIndex(current);
       if (current >= targetLetters.length - 1) {
+        setActiveKeyIndex(targetLetters.length - 1);
         setIsFullyTyped(true);
         clearInterval(interval);
-        setTimeout(() => setAutoPlay(false), 800);
       } else {
         current++;
+        setActiveKeyIndex(current);
       }
-    }, 260);
+    }, 240); // Teclado mais rápido (240ms por tecla, ~1.9s total)
+  };
+
+  const handleAutoPlay = () => {
+    startSlowTyping();
   };
 
   const handleReset = () => {
-    setAutoPlay(false);
-    setActiveKeyIndex(isMobile ? 0 : -1);
+    setActiveKeyIndex(-1);
     setIsFullyTyped(false);
+    setTimeout(() => {
+      startSlowTyping();
+    }, 100);
   };
 
   const [streamedTextLength, setStreamedTextLength] = useState(0);
@@ -127,12 +79,12 @@ export default function StatsSection() {
 
   const totalChars = fullStoryP1.length + fullStoryP2.length;
 
-  // Smooth 2-second typewriter / streaming reveal of the story text when fully typed
+  // Typewriter streaming reveal of story text (mais lento: 4.8 segundos)
   useEffect(() => {
     let animationFrame;
     if (isFullyTyped) {
       const startTime = performance.now();
-      const duration = 2000; // 2 seconds smooth animation
+      const duration = 4800; // 4.8 seconds smooth readable animation
 
       const animateText = (currentTime) => {
         const elapsed = currentTime - startTime;
@@ -169,22 +121,39 @@ export default function StatsSection() {
     return keyChar.toUpperCase() === activeTarget;
   };
 
-  // Exact original 3D perspective tilt on desktop, straight-on view on mobile
-  const rotateX = isMobile ? (15 - scrollProgress * 6) : (28 - scrollProgress * 14);
-  const rotateY = isMobile ? 0 : (-6 + scrollProgress * 6);
-  const scale = 0.96 + scrollProgress * 0.05;
+  // 3D perspective tilt & scale based on typing progress
+  const animProgress = activeKeyIndex < 0 ? 0 : (activeKeyIndex + 1) / targetLetters.length;
+  const numberProgress = isFullyTyped ? 1 : animProgress;
+
+  // Ultra-fluid 60fps smooth counter interpolation across all numbers
+  const [displayProgress, setDisplayProgress] = useState(0);
+
+  useEffect(() => {
+    let animFrame;
+    const updateProgress = () => {
+      setDisplayProgress((prev) => {
+        const target = isFullyTyped ? 1 : numberProgress;
+        const diff = target - prev;
+        if (Math.abs(diff) < 0.0008) return target;
+        return prev + diff * 0.09;
+      });
+      animFrame = requestAnimationFrame(updateProgress);
+    };
+
+    animFrame = requestAnimationFrame(updateProgress);
+    return () => cancelAnimationFrame(animFrame);
+  }, [numberProgress, isFullyTyped]);
+
+  const rotateX = isMobile ? (15 - displayProgress * 6) : (28 - displayProgress * 14);
+  const rotateY = isMobile ? 0 : (-6 + displayProgress * 6);
+  const scale = 0.96 + displayProgress * 0.05;
 
   const typedWord = activeKeyIndex >= 0 ? targetLetters.slice(0, activeKeyIndex + 1).join('') : '';
 
-  // Dynamically growing numbers as user scrolls down: exact original desktop formula, mobile formula for fast completion
-  const numberProgress = isMobile
-    ? (isFullyTyped ? 1 : Math.min(Math.max(scrollProgress / 0.85, 0), 1))
-    : (isFullyTyped ? 1 : Math.min(Math.max((scrollProgress - 0.05) / 0.65, 0), 1));
-
-  const valParticipantes = Math.round(numberProgress * 450);
-  const valTradicao = Math.round(numberProgress * 13);
-  const valImersao = Math.round(numberProgress * 40);
-  const valPalestras = Math.round(numberProgress * 15);
+  const valParticipantes = Math.round(displayProgress * 450);
+  const valTradicao = Math.round(displayProgress * 13);
+  const valImersao = Math.round(displayProgress * 40);
+  const valPalestras = Math.round(displayProgress * 15);
 
   // Compute sliced paragraphs for smooth typing
   const p1Visible = fullStoryP1.slice(0, Math.min(streamedTextLength, fullStoryP1.length));
@@ -199,19 +168,18 @@ export default function StatsSection() {
       id="sobre"
       style={{
         position: 'relative',
-        minHeight: isMobile ? '135vh' : '260vh',
+        minHeight: 'auto',
+        padding: isMobile ? '3.5rem 0' : '5rem 0',
         background:
           'radial-gradient(circle at 75% 25%, rgba(139, 92, 246, 0.45) 0%, rgba(99, 32, 238, 0.35) 40%, rgba(30, 8, 66, 0.95) 100%), #1c063b',
         borderBottom: '1px solid rgba(168, 85, 247, 0.35)',
       }}
     >
-      {/* Sticky Container pinning the interactive 3D keyboard, screen and stats */}
+      {/* Container pinning the interactive 3D keyboard, screen and stats */}
       <div
         className="stats-sticky-wrapper"
         style={{
-          position: 'sticky',
-          top: '70px',
-          minHeight: 'calc(100vh - 70px)',
+          position: 'relative',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'flex-start',
@@ -462,14 +430,17 @@ export default function StatsSection() {
             {!isFullyTyped && (
               <p
                 style={{
-                  color: '#94a3b8',
-                  fontSize: '0.88rem',
-                  margin: 0,
+                  color: '#a855f7',
+                  fontSize: '0.82rem',
                   fontFamily: 'var(--font-mono)',
-                  lineHeight: 1.5,
+                  margin: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  opacity: 0.9,
                 }}
               >
-                &gt; Role a página para pressionar as teclas no teclado 3D abaixo e desbloquear o sobre da TechWeek...
+                &gt; O teclado 3D digita automaticamente para carregar a história da TechWeek...
               </p>
             )}
           </div>
@@ -493,7 +464,7 @@ export default function StatsSection() {
             style={{
               transformStyle: 'preserve-3d',
               transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${scale})`,
-              transition: 'transform 0.15s ease-out',
+              transition: 'transform 0.5s ease-out',
               background: 'linear-gradient(145deg, #1a0638 0%, #0d0220 100%)',
               border: '2px solid rgba(168, 85, 247, 0.5)',
               borderRadius: '1.5rem',

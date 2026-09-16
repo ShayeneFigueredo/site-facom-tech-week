@@ -8,6 +8,13 @@ export default function PartnersBar() {
       description: 'Infraestrutura tecnológica completa para o mercado financeiro.',
       isWhite: true,
       logoHeight: '34px',
+      tier: 'Diamante',
+      tierColor: '#00f0ff',
+      tierBorder: 'rgba(0, 240, 255, 0.6)',
+      tierGlow: '0 0 20px rgba(0, 240, 255, 0.35)',
+      hoverBorderColor: 'rgba(0, 240, 255, 0.85)',
+      hoverBoxShadow: '0 22px 45px -10px rgba(0, 240, 255, 0.4), 0 0 30px rgba(0, 240, 255, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.4)',
+      hoverBackground: 'rgba(12, 30, 60, 0.75)',
     },
     {
       name: 'Bayer',
@@ -15,6 +22,13 @@ export default function PartnersBar() {
       description: 'Líder global em biotecnologia, agro e inovação digital.',
       isWhite: false,
       logoHeight: '52px',
+      tier: 'Ouro',
+      tierColor: '#fbbf24',
+      tierBorder: 'rgba(251, 191, 36, 0.6)',
+      tierGlow: '0 0 20px rgba(251, 191, 36, 0.35)',
+      hoverBorderColor: 'rgba(251, 191, 36, 0.85)',
+      hoverBoxShadow: '0 22px 45px -10px rgba(251, 191, 36, 0.4), 0 0 30px rgba(251, 191, 36, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.4)',
+      hoverBackground: 'rgba(42, 32, 16, 0.75)',
     },
     {
       name: 'BIP Consulting',
@@ -22,6 +36,13 @@ export default function PartnersBar() {
       description: 'Consultoria global em transformação digital e estratégia tech.',
       isWhite: false,
       logoHeight: '42px',
+      tier: 'Prata',
+      tierColor: '#ffffff',
+      tierBorder: 'rgba(241, 245, 249, 0.75)',
+      tierGlow: '0 0 22px rgba(241, 245, 249, 0.5)',
+      hoverBorderColor: 'rgba(241, 245, 249, 0.9)',
+      hoverBoxShadow: '0 22px 45px -10px rgba(241, 245, 249, 0.45), 0 0 30px rgba(255, 255, 255, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.5)',
+      hoverBackground: 'rgba(30, 41, 59, 0.8)',
     },
     {
       name: 'Hyperflow',
@@ -29,6 +50,13 @@ export default function PartnersBar() {
       description: 'Plataforma avançada de automação inteligente e fluxos de IA.',
       isWhite: false,
       logoHeight: '44px',
+      tier: 'Prata',
+      tierColor: '#ffffff',
+      tierBorder: 'rgba(241, 245, 249, 0.75)',
+      tierGlow: '0 0 22px rgba(241, 245, 249, 0.5)',
+      hoverBorderColor: 'rgba(241, 245, 249, 0.9)',
+      hoverBoxShadow: '0 22px 45px -10px rgba(241, 245, 249, 0.45), 0 0 30px rgba(255, 255, 255, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.5)',
+      hoverBackground: 'rgba(30, 41, 59, 0.8)',
     },
   ];
 
@@ -39,7 +67,7 @@ export default function PartnersBar() {
         position: 'relative',
         zIndex: 30,
         marginTop: '0px',
-        paddingTop: '15px',
+        paddingTop: '30px',
         paddingBottom: '3.5rem',
       }}
     >
@@ -49,7 +77,8 @@ export default function PartnersBar() {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '1.25rem',
+            gap: '1.5rem',
+            rowGap: '2rem',
           }}
           className="sponsors-grid"
         >
@@ -58,7 +87,10 @@ export default function PartnersBar() {
               key={idx}
               className="sponsor-card"
               style={{
-                padding: '1.85rem 1.5rem 1.6rem 1.5rem',
+                '--hover-border': sponsor.hoverBorderColor,
+                '--hover-shadow': sponsor.hoverBoxShadow,
+                '--hover-bg': sponsor.hoverBackground,
+                padding: '2.4rem 1.5rem 1.6rem 1.5rem',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
@@ -72,13 +104,54 @@ export default function PartnersBar() {
                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                 cursor: 'pointer',
                 position: 'relative',
-                minHeight: '225px',
+                minHeight: '260px',
               }}
             >
-              {/* Logo Directly in the Card (No inner dark box) */}
+              {/* Tipo de Patrocinador - Saltando para fora na parte superior */}
               <div
                 style={{
-                  height: '80px',
+                  position: 'absolute',
+                  top: '-16px',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '0.38rem 1.25rem',
+                  borderRadius: '0.65rem',
+                  background: 'rgba(9, 14, 34, 0.94)',
+                  border: `1px solid ${sponsor.tierBorder}`,
+                  backdropFilter: 'blur(16px)',
+                  WebkitBackdropFilter: 'blur(16px)',
+                  boxShadow: `0 8px 22px -4px rgba(0, 0, 0, 0.75), inset 0 1px 1px rgba(255, 255, 255, 0.35), ${sponsor.tierGlow}`,
+                  zIndex: 10,
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                <span
+                  style={{
+                    color: sponsor.tierColor,
+                    fontSize: '0.78rem',
+                    fontWeight: 800,
+                    letterSpacing: '0.09em',
+                    textTransform: 'uppercase',
+                    fontFamily: 'var(--font-heading)',
+                    textShadow:
+                      sponsor.tier === 'Prata'
+                        ? '0 0 10px rgba(255, 255, 255, 0.7)'
+                        : sponsor.tier === 'Diamante'
+                        ? '0 0 10px rgba(0, 240, 255, 0.6)'
+                        : '0 0 10px rgba(251, 191, 36, 0.6)',
+                  }}
+                >
+                  {sponsor.tier}
+                </span>
+              </div>
+
+              {/* Logo Directly in the Card */}
+              <div
+                style={{
+                  height: '75px',
                   width: '100%',
                   display: 'flex',
                   alignItems: 'center',
@@ -135,9 +208,9 @@ export default function PartnersBar() {
       <style>{`
         .sponsor-card:hover {
           transform: translateY(-6px);
-          background: rgba(22, 34, 72, 0.65) !important;
-          border-color: rgba(0, 210, 255, 0.6) !important;
-          box-shadow: 0 22px 45px -10px rgba(0, 112, 243, 0.35), 0 0 25px rgba(121, 40, 202, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.4) !important;
+          background: var(--hover-bg, rgba(22, 34, 72, 0.65)) !important;
+          border-color: var(--hover-border, rgba(0, 210, 255, 0.6)) !important;
+          box-shadow: var(--hover-shadow, 0 22px 45px -10px rgba(0, 112, 243, 0.35)) !important;
         }
         .sponsor-card:hover .sponsor-logo-img {
           transform: scale(1.06);
