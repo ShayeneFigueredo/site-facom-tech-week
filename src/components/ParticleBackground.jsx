@@ -100,8 +100,50 @@ export default function ParticleBackground() {
       camera.targetRotX = 0.28;
     };
 
+    const handleWindowTouch = (e) => {
+      if (e.touches && e.touches.length > 0) {
+        const touch = e.touches[0];
+        const rect = canvas.getBoundingClientRect();
+        const x = touch.clientX - rect.left;
+        const y = touch.clientY - rect.top;
+
+        const inside = x >= -100 && x <= rect.width + 100 && y >= -100 && y <= rect.height + 100;
+
+        if (inside) {
+          if (!mouse.isInside || mouse.smoothX < -1000) {
+            mouse.smoothX = x;
+            mouse.smoothY = y;
+            mouse.prevSmoothX = x;
+            mouse.prevSmoothY = y;
+          }
+
+          mouse.x = x;
+          mouse.y = y;
+          mouse.targetX = x;
+          mouse.targetY = y;
+          mouse.isInside = true;
+
+          const normX = (x / width - 0.5) * 2;
+          const normY = (y / height - 0.5) * 2;
+          camera.targetRotY = normX * 0.16;
+          camera.targetRotX = 0.28 + normY * 0.1;
+        }
+      }
+    };
+
+    const handleWindowTouchEnd = () => {
+      mouse.isInside = false;
+      mouse.targetX = -2000;
+      mouse.targetY = -2000;
+      camera.targetRotY = 0;
+      camera.targetRotX = 0.28;
+    };
+
     window.addEventListener('mousemove', handleWindowMouseMove, { passive: true });
     window.addEventListener('mouseleave', handleWindowMouseLeave);
+    window.addEventListener('touchstart', handleWindowTouch, { passive: true });
+    window.addEventListener('touchmove', handleWindowTouch, { passive: true });
+    window.addEventListener('touchend', handleWindowTouchEnd, { passive: true });
 
     // =========================================================================
     // 1. 3D ANTIGRAVITY WAVE MESH (ELEVATED & PROMINENT ACROSS HERO + SPONSORS)
@@ -420,6 +462,9 @@ export default function ParticleBackground() {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleWindowMouseMove);
       window.removeEventListener('mouseleave', handleWindowMouseLeave);
+      window.removeEventListener('touchstart', handleWindowTouch);
+      window.removeEventListener('touchmove', handleWindowTouch);
+      window.removeEventListener('touchend', handleWindowTouchEnd);
     };
   }, []);
 
