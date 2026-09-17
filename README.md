@@ -95,7 +95,7 @@ O site foi concebido com uma estética **futurista, cibernética e imersiva**, c
 
 ## 👥 Desenvolvedores & Créditos
 
-Este projeto foi desenvolvido com dedicação e paixão por tecnologia por:
+Este projeto foi desenvolvido  por:
 
 <div align="center">
   <table>
