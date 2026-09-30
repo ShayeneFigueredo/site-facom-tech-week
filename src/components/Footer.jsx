@@ -101,7 +101,7 @@ export default function Footer({ onOpenModal }) {
               Navegação
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', padding: 0 }}>
-              {['Início', 'Patrocinadores', 'Sobre', 'Trilhas', 'Programação', 'Palestrantes', 'Ingressos', 'FAQ'].map(
+              {['Início', 'Sobre', 'Trilhas', 'Programação', 'Palestrantes', 'Ingressos', 'FAQ'].map(
                 (item, idx) => (
                   <li key={idx}>
                     <a

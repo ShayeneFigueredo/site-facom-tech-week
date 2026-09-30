@@ -590,8 +590,9 @@ export default function TicketsSection({
         </div>
 
         {/* ============================================================== */}
-        {/* BANNER ESPECIAL: CAMISETA OFICIAL (MINIMALISTA)                */}
+        {/* BANNER ESPECIAL: CAMISETA OFICIAL (OCULTO TEMPORARIAMENTE)     */}
         {/* ============================================================== */}
+        {/* 
         <div
           className="tshirt-sympla-card"
           style={{
@@ -610,9 +611,7 @@ export default function TicketsSection({
             position: 'relative',
           }}
         >
-          {/* Left Side: Photo of the Shirt + Texts */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flex: 1 }} className="tshirt-info-wrap">
-            {/* Foto da Camisa em Frame Minimalista */}
             <div
               className="tshirt-photo-frame"
               style={{
@@ -644,7 +643,6 @@ export default function TicketsSection({
               />
             </div>
 
-            {/* Detalhes da Camisa */}
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem', flexWrap: 'wrap' }}>
                 <span
@@ -703,7 +701,6 @@ export default function TicketsSection({
             </div>
           </div>
 
-          {/* Right Side: CTA Button directly to Sympla */}
           <a
             href={symplaUrl}
             target="_blank"
@@ -733,6 +730,7 @@ export default function TicketsSection({
             <ExternalLink size={14} color="#94a3b8" />
           </a>
         </div>
+        */}
       </div>
 
       <style>{`

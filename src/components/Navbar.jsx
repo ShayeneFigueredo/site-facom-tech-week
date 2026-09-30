@@ -15,7 +15,6 @@ export default function Navbar({ onOpenModal }) {
 
   const navLinks = [
     { name: 'Início', href: '#inicio' },
-    { name: 'Patrocinadores', href: '#patrocinadores' },
     { name: 'Sobre', href: '#sobre' },
     { name: 'Trilhas', href: '#trilhas' },
     { name: 'Programação', href: '#programacao' },

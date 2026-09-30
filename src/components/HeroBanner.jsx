@@ -285,9 +285,9 @@ export default function HeroBanner({ onOpenModal }) {
         </div>
 
         {/* ===================================================================
-            PATROCINADORES NO MESMO FUNDO CONTÍNUO (SEM DIVISÃO DE ÁREAS)
+            PATROCINADORES OCULTOS TEMPORARIAMENTE
             =================================================================== */}
-        <PartnersBar />
+        {/* <PartnersBar /> */}
       </div>
 
       <style>{`
