@@ -22,8 +22,12 @@ export default function FaqSection() {
       a: 'Recomendamos trazer seu próprio notebook, mas os laboratórios da FACOM / UFU também estarão preparados com o ambiente e ferramentas configurados para os participantes.',
     },
     {
-      q: 'Haverá transmissão online das palestras do auditório principal?',
-      a: 'Sim, as palestras principais serão transmitidas ao vivo no canal oficial da FACOM UFU no YouTube para os inscritos que desejarem acompanhar remotamente.',
+      q: 'Como posso adquirir a camiseta oficial da FACOM TechWeek?',
+      a: 'Os 100 primeiros inscritos com presença confirmada ganham a camiseta oficial inclusa no kit presencial. Caso você queira garantir a sua ou comprar unidades extras, a camiseta oficial também é vendida de forma avulsa diretamente pelo Sympla.',
+    },
+    {
+      q: 'Como se inscrever nos minicursos e workshops?',
+      a: 'As inscrições para os minicursos e workshops práticos serão abertas em breve através do aplicativo oficial do evento! Pelo app, todos os inscritos poderão escolher suas trilhas e reservar vagas nas atividades com facilidade.',
     },
   ];
 
@@ -40,6 +44,8 @@ export default function FaqSection() {
         background:
           'radial-gradient(circle at 75% 25%, rgba(0, 112, 243, 0.16) 0%, transparent 45%), radial-gradient(circle at 25% 75%, rgba(121, 40, 202, 0.16) 0%, transparent 45%), #040715',
         overflow: 'hidden',
+        width: '100%',
+        maxWidth: '100%',
       }}
     >
       {/* Background Matrix Grid */}
@@ -82,6 +88,7 @@ export default function FaqSection() {
               >
                 <button
                   onClick={() => toggleFaq(index)}
+                  className="faq-button"
                   style={{
                     width: '100%',
                     padding: '1.25rem 1.5rem',
@@ -114,6 +121,7 @@ export default function FaqSection() {
 
                 {isOpen && (
                   <div
+                    className="faq-answer"
                     style={{
                       padding: '0 1.5rem 1.25rem 1.5rem',
                       color: 'var(--text-secondary)',
@@ -131,6 +139,22 @@ export default function FaqSection() {
           })}
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          #faq {
+            padding: 3.5rem 0 !important;
+          }
+          .faq-button {
+            padding: 1rem 1.1rem !important;
+            font-size: 0.92rem !important;
+          }
+          .faq-answer {
+            padding: 0 1.1rem 1rem 1.1rem !important;
+            font-size: 0.88rem !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, ExternalLink, ShieldCheck, Sparkles, ArrowLeft, Zap } from 'lucide-react';
+import { Terminal, ExternalLink, ShieldCheck, Sparkles, ArrowLeft, Zap, Shirt, ShoppingBag } from 'lucide-react';
 
-export default function TicketsSection({ onOpenModal, symplaUrl = 'https://www.sympla.com.br' }) {
+export default function TicketsSection({
+  onOpenModal,
+  symplaUrl = 'https://www.sympla.com.br/evento/facom-techweek/3599637',
+}) {
   // Profiles configuration
   const profiles = [
     {
@@ -19,7 +22,7 @@ export default function TicketsSection({ onOpenModal, symplaUrl = 'https://www.s
       displayTitle: 'Ingresso Acadêmico: R$ 50,00*',
       price: 50,
       priceFormatted: 'R$ 50,00*',
-      motivationalText: 'Incentivamos a participação de toda a comunidade acadêmica por isso susubsiamos parte do seu ingresso. Bem-vindo!',
+      motivationalText: 'Incentivamos a participação de toda a comunidade acadêmica por isso subsidiamos parte do seu ingresso. Bem-vindo!',
       accentColor: '#38bdf8',
     },
     {
@@ -36,7 +39,7 @@ export default function TicketsSection({ onOpenModal, symplaUrl = 'https://www.s
   const benefits = [
     'Acesso a todas as palestras e workshops.',
     'Oportunidades de networking com empresas e palestrantes.',
-    'Certificado de participação digital.',
+    'Certificado de participação digital (SIEX/UFU - 40h).',
     'Kit de Boas-Vindas do Evento.',
   ];
 
@@ -75,9 +78,6 @@ export default function TicketsSection({ onOpenModal, symplaUrl = 'https://www.s
     if (symplaUrl) {
       window.open(symplaUrl, '_blank', 'noopener,noreferrer');
     }
-    if (onOpenModal) {
-      onOpenModal();
-    }
   };
 
   // Helper to render title with small superscript asterisk
@@ -108,6 +108,8 @@ export default function TicketsSection({ onOpenModal, symplaUrl = 'https://www.s
         borderTop: '1px solid rgba(168, 85, 247, 0.35)',
         borderBottom: '1px solid rgba(168, 85, 247, 0.35)',
         overflow: 'hidden',
+        width: '100%',
+        maxWidth: '100%',
       }}
     >
       {/* Background Matrix Grid */}
@@ -235,8 +237,8 @@ export default function TicketsSection({ onOpenModal, symplaUrl = 'https://www.s
                 Sua inscrição na FACOM TechWeek garante:
               </p>
 
-              {/* Checklist com SVG minimalista que se desenha em tempo real */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.15rem', marginBottom: '2.5rem' }}>
+              {/* Checklist com SVG minimalista */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.15rem', marginBottom: '2.2rem' }}>
                 {benefits.map((benefitText, idx) => (
                   <div
                     key={idx}
@@ -249,7 +251,6 @@ export default function TicketsSection({ onOpenModal, symplaUrl = 'https://www.s
                       lineHeight: 1.45,
                     }}
                   >
-                    {/* SVG Checkminimalista desenhado por CSS strokeDasharray */}
                     <div
                       style={{
                         width: '22px',
@@ -286,75 +287,6 @@ export default function TicketsSection({ onOpenModal, symplaUrl = 'https://www.s
                   </div>
                 ))}
               </div>
-            </div>
-
-            {/* Destaque "Exclusivo para os Primeiros" por Tipografia e Iluminação Neon (Sem caixa sólida) */}
-            <div
-              style={{
-                borderTop: '1px solid rgba(255, 255, 255, 0.12)',
-                paddingTop: '1.75rem',
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                <Zap size={18} color="#fbbf24" fill="#fbbf24" />
-                <span
-                  style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: '1.1rem',
-                    fontWeight: 800,
-                    color: '#ffffff',
-                    letterSpacing: '0.02em',
-                  }}
-                >
-                  Exclusivo para os Primeiros
-                </span>
-              </div>
-
-              <p
-                style={{
-                  color: '#e2e8f0',
-                  fontSize: '0.95rem',
-                  lineHeight: 1.55,
-                  margin: '0 0 0.5rem 0',
-                }}
-              >
-                Os{' '}
-                <span
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontWeight: 800,
-                    color: '#fbbf24',
-                    fontSize: '1.05rem',
-                    textShadow: '0 0 12px rgba(251, 191, 36, 0.6), 0 0 24px rgba(251, 191, 36, 0.3)',
-                  }}
-                >
-                  100 primeiros inscritos
-                </span>{' '}
-                garantem a{' '}
-                <span
-                  style={{
-                    fontWeight: 800,
-                    color: '#fbbf24',
-                    textShadow: '0 0 12px rgba(251, 191, 36, 0.6), 0 0 24px rgba(251, 191, 36, 0.3)',
-                  }}
-                >
-                  camiseta oficial e exclusiva
-                </span>{' '}
-                do evento, adicionada ao seu kit sem custo extra.
-              </p>
-
-              <p
-                style={{
-                  fontFamily: 'var(--font-mono)',
-                  color: '#fbbf24',
-                  fontSize: '0.86rem',
-                  margin: 0,
-                  fontStyle: 'italic',
-                  opacity: 0.9,
-                }}
-              >
-                &gt; Garanta a sua antes que acabe!
-              </p>
             </div>
           </div>
 
@@ -420,7 +352,7 @@ export default function TicketsSection({ onOpenModal, symplaUrl = 'https://www.s
                   Passo 1: Quem é você?
                 </h4>
 
-                {/* Radio Options with Purple Neon Expanding Circle on Click */}
+                {/* Radio Options */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.95rem' }}>
                   {profiles.map((profile) => (
                     <label
@@ -449,7 +381,7 @@ export default function TicketsSection({ onOpenModal, symplaUrl = 'https://www.s
                         style={{ display: 'none' }}
                       />
 
-                      {/* Custom Radio Indicator with Purple Neon Expanding Circle */}
+                      {/* Custom Radio Indicator */}
                       <div
                         style={{
                           width: '22px',
@@ -495,7 +427,7 @@ export default function TicketsSection({ onOpenModal, symplaUrl = 'https://www.s
                 </div>
               </div>
             ) : (
-              /* PASSO 2: Revelação Coreografada Suave com Perfil Selecionado e Botão de Voltar */
+              /* PASSO 2: Revelação Coreografada com Preço */
               <div
                 className="step-2-revealed-terminal"
                 style={{
@@ -524,7 +456,6 @@ export default function TicketsSection({ onOpenModal, symplaUrl = 'https://www.s
                     </span>
                   </div>
 
-                  {/* Botão de Setinha de Voltar */}
                   <button
                     onClick={() => setSelectedProfileId(null)}
                     style={{
@@ -558,7 +489,6 @@ export default function TicketsSection({ onOpenModal, symplaUrl = 'https://www.s
                   Passo 2: Confirme sua Inscrição
                 </h4>
 
-                {/* Subtexto Motivacional */}
                 <p
                   style={{
                     color: '#cbd5e1',
@@ -571,7 +501,7 @@ export default function TicketsSection({ onOpenModal, symplaUrl = 'https://www.s
                   <em>{selectedProfile.motivationalText}</em>
                 </p>
 
-                {/* Revelação do Preço com Efeito Glitch / Contagem Terminal Monospace */}
+                {/* Revelação do Preço */}
                 <div
                   style={{
                     background: 'rgba(6, 10, 26, 0.85)',
@@ -618,9 +548,9 @@ export default function TicketsSection({ onOpenModal, symplaUrl = 'https://www.s
                     width: '100%',
                     padding: '1.15rem 2rem',
                     borderRadius: '1rem',
-                    fontSize: '1.1rem',
+                    fontSize: '1.05rem',
                     fontWeight: 900,
-                    letterSpacing: '0.06em',
+                    letterSpacing: '0.04em',
                     display: 'inline-flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -638,7 +568,6 @@ export default function TicketsSection({ onOpenModal, symplaUrl = 'https://www.s
                   <ExternalLink size={20} />
                 </button>
 
-                {/* Transparência e Nota sobre Taxas */}
                 <p
                   style={{
                     fontSize: '0.82rem',
@@ -652,12 +581,157 @@ export default function TicketsSection({ onOpenModal, symplaUrl = 'https://www.s
                   <em>
                     *Pode haver taxas da plataforma de pagamento.
                     <br />
-                    Você será redirecionado para finalizar a compra de forma segura.
+                    Você será redirecionado para finalizar a compra de forma segura no Sympla.
                   </em>
                 </p>
               </div>
             )}
           </div>
+        </div>
+
+        {/* ============================================================== */}
+        {/* BANNER ESPECIAL: CAMISETA OFICIAL (MINIMALISTA)                */}
+        {/* ============================================================== */}
+        <div
+          className="tshirt-sympla-card"
+          style={{
+            marginTop: '2.5rem',
+            background: 'rgba(9, 14, 33, 0.65)',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            borderRadius: '1.25rem',
+            padding: '1.5rem 2rem',
+            boxShadow: '0 15px 35px -10px rgba(0, 0, 0, 0.7)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '2rem',
+            position: 'relative',
+          }}
+        >
+          {/* Left Side: Photo of the Shirt + Texts */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flex: 1 }} className="tshirt-info-wrap">
+            {/* Foto da Camisa em Frame Minimalista */}
+            <div
+              className="tshirt-photo-frame"
+              style={{
+                width: '100px',
+                height: '100px',
+                minWidth: '100px',
+                borderRadius: '0.85rem',
+                background: 'rgba(255, 255, 255, 0.03)',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '0.35rem',
+                overflow: 'hidden',
+                flexShrink: 0,
+              }}
+            >
+              <img
+                src="/Camisa.png"
+                alt="Camiseta Oficial FACOM TechWeek 2026"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain',
+                  transition: 'transform 0.3s ease',
+                  filter: 'drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5))',
+                }}
+                className="tshirt-img-preview"
+              />
+            </div>
+
+            {/* Detalhes da Camisa */}
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem', flexWrap: 'wrap' }}>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.7rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.06em',
+                    color: '#38bdf8',
+                    background: 'rgba(56, 189, 248, 0.08)',
+                    border: '1px solid rgba(56, 189, 248, 0.25)',
+                    padding: '0.15rem 0.5rem',
+                    borderRadius: '0.3rem',
+                  }}
+                >
+                  👕 MANTO OFICIAL // SYMPLA
+                </span>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.7rem',
+                    color: '#fbbf24',
+                    background: 'rgba(251, 191, 36, 0.08)',
+                    border: '1px solid rgba(251, 191, 36, 0.2)',
+                    padding: '0.15rem 0.5rem',
+                    borderRadius: '0.3rem',
+                  }}
+                >
+                  EDIÇÃO LIMITADA
+                </span>
+              </div>
+
+              <h4
+                style={{
+                  fontSize: '1.15rem',
+                  fontWeight: 700,
+                  color: '#ffffff',
+                  fontFamily: 'var(--font-heading)',
+                  margin: '0 0 0.3rem 0',
+                }}
+              >
+                Camiseta Oficial FACOM TechWeek 2026
+              </h4>
+
+              <p
+                style={{
+                  color: '#94a3b8',
+                  fontSize: '0.88rem',
+                  margin: 0,
+                  lineHeight: 1.5,
+                  maxWidth: '580px',
+                }}
+              >
+                Disponível para compra direta no Sympla — adquira junto ao seu ingresso ou de forma avulsa para garantir o manto da edição.
+              </p>
+            </div>
+          </div>
+
+          {/* Right Side: CTA Button directly to Sympla */}
+          <a
+            href={symplaUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-tshirt-sympla"
+            style={{
+              padding: '0.75rem 1.4rem',
+              borderRadius: '0.65rem',
+              fontSize: '0.86rem',
+              fontWeight: 700,
+              fontFamily: 'var(--font-heading)',
+              letterSpacing: '0.03em',
+              background: 'rgba(255, 255, 255, 0.06)',
+              color: '#ffffff',
+              border: '1px solid rgba(56, 189, 248, 0.3)',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.55rem',
+              textDecoration: 'none',
+              whiteSpace: 'nowrap',
+              transition: 'all 0.25s ease',
+              flexShrink: 0,
+            }}
+          >
+            <ShoppingBag size={16} color="#38bdf8" />
+            <span>COMPRAR NO SYMPLA</span>
+            <ExternalLink size={14} color="#94a3b8" />
+          </a>
         </div>
       </div>
 
@@ -720,6 +794,18 @@ export default function TicketsSection({ onOpenModal, symplaUrl = 'https://www.s
           transform: translateY(-2px);
         }
 
+        .tshirt-photo-frame:hover .tshirt-img-preview {
+          transform: scale(1.06);
+        }
+
+        .btn-tshirt-sympla:hover {
+          background: rgba(56, 189, 248, 0.15) !important;
+          border-color: #38bdf8 !important;
+          color: #ffffff !important;
+          transform: translateY(-2px);
+          box-shadow: 0 0 15px rgba(56, 189, 248, 0.25) !important;
+        }
+
         @media (max-width: 992px) {
           .cyber-terminal-container {
             grid-template-columns: 1fr !important;
@@ -730,9 +816,53 @@ export default function TicketsSection({ onOpenModal, symplaUrl = 'https://www.s
           .hud-status-panel, .hud-interactive-panel {
             padding: 2rem 1.5rem !important;
           }
+          .tshirt-sympla-card {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            padding: 1.5rem 1.35rem !important;
+            gap: 1.25rem !important;
+          }
+          .btn-tshirt-sympla {
+            width: 100% !important;
+            justify-content: center !important;
+          }
+        }
+
+        @media (max-width: 640px) {
+          #ingressos {
+            padding: 3.5rem 0 !important;
+          }
+          .cyber-terminal-container {
+            border-radius: 1.25rem !important;
+          }
+          .hud-status-panel, .hud-interactive-panel {
+            padding: 1.5rem 1.15rem !important;
+          }
+          .tshirt-info-wrap {
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            gap: 1rem !important;
+          }
+          .tshirt-photo-frame {
+            width: 120px !important;
+            height: 120px !important;
+          }
+          .cyber-radio-card {
+            padding: 0.9rem 1rem !important;
+            border-radius: 0.85rem !important;
+            gap: 0.75rem !important;
+          }
+          .radio-label-text {
+            font-size: 0.92rem !important;
+          }
+          .btn-powerup-cta {
+            padding: 0.95rem 1.25rem !important;
+            font-size: 0.92rem !important;
+            letter-spacing: 0.03em !important;
+          }
         }
       `}</style>
     </section>
   );
 }
-

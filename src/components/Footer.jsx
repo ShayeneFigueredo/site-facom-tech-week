@@ -215,8 +215,14 @@ export default function Footer({ onOpenModal }) {
           }
         }
         @media (max-width: 576px) {
+          footer {
+            padding-top: 3.5rem !important;
+            padding-bottom: 2rem !important;
+          }
           .footer-grid {
             grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+            margin-bottom: 2.5rem !important;
           }
         }
       `}</style>

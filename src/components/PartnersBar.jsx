@@ -18,7 +18,7 @@ export default function PartnersBar() {
     },
     {
       name: 'Bayer',
-      logo: '/patrocinadores/logo-bayer.webp',
+      logo: '/patrocinadores/LogoBayer.png',
       description: 'Líder global em biotecnologia, agro e inovação digital.',
       isWhite: false,
       logoHeight: '52px',
@@ -29,6 +29,20 @@ export default function PartnersBar() {
       hoverBorderColor: 'rgba(251, 191, 36, 0.85)',
       hoverBoxShadow: '0 22px 45px -10px rgba(251, 191, 36, 0.4), 0 0 30px rgba(251, 191, 36, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.4)',
       hoverBackground: 'rgba(42, 32, 16, 0.75)',
+    },
+    {
+      name: 'Aimirim',
+      logo: '/patrocinadores/aimirim-logo.png',
+      description: 'Inteligência Artificial e automação avançada para a indústria.',
+      isWhite: true,
+      logoHeight: '38px',
+      tier: 'Prata',
+      tierColor: '#ffffff',
+      tierBorder: 'rgba(241, 245, 249, 0.75)',
+      tierGlow: '0 0 22px rgba(241, 245, 249, 0.5)',
+      hoverBorderColor: 'rgba(241, 245, 249, 0.9)',
+      hoverBoxShadow: '0 22px 45px -10px rgba(241, 245, 249, 0.45), 0 0 30px rgba(255, 255, 255, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.5)',
+      hoverBackground: 'rgba(30, 41, 59, 0.8)',
     },
     {
       name: 'BIP Consulting',
@@ -64,173 +78,215 @@ export default function PartnersBar() {
     <div
       id="patrocinadores"
       style={{
-        position: 'relative',
-        zIndex: 10,
         width: '100%',
-        marginTop: '3.5rem',
-        paddingTop: '20px',
-        paddingBottom: '3rem',
+        maxWidth: '1240px',
+        margin: '0 auto',
+        padding: '0.75rem 0.5rem 0.5rem 0.5rem',
+        position: 'relative',
+        zIndex: 20,
       }}
     >
+      {/* Header Badge */}
       <div
         style={{
-          width: '100%',
-          maxWidth: '1280px',
-          margin: '0 auto',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '1rem',
+          marginBottom: '1.25rem',
         }}
       >
-        {/* Sponsor Cards Grid */}
         <div
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '1.5rem',
-            rowGap: '2rem',
+            height: '1px',
+            width: '45px',
+            background: 'linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5))',
           }}
-          className="sponsors-grid"
+        />
+        <span
+          style={{
+            color: '#38bdf8',
+            fontFamily: 'var(--font-heading)',
+            fontSize: '0.75rem',
+            fontWeight: 800,
+            letterSpacing: '0.22em',
+            textTransform: 'uppercase',
+            textShadow: '0 0 12px rgba(56, 189, 248, 0.6)',
+          }}
         >
-          {sponsors.map((sponsor, idx) => (
+          Patrocinadores Oficiais // FACOM Tech Week
+        </span>
+        <div
+          style={{
+            height: '1px',
+            width: '45px',
+            background: 'linear-gradient(90deg, rgba(56, 189, 248, 0.5), transparent)',
+          }}
+        />
+      </div>
+
+      {/* Grid de Cards dos Patrocinadores */}
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
+          gap: '1rem',
+          width: '100%',
+          alignItems: 'stretch',
+        }}
+        className="sponsors-grid"
+      >
+        {sponsors.map((sponsor) => (
+          <div
+            key={sponsor.name}
+            className="sponsor-card-neo"
+            style={{
+              '--hover-border': sponsor.hoverBorderColor,
+              '--hover-shadow': sponsor.hoverBoxShadow,
+              '--hover-bg': sponsor.hoverBackground,
+              '--tier-color': sponsor.tierColor,
+              position: 'relative',
+              background: 'rgba(9, 14, 34, 0.75)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+              borderRadius: '1rem',
+              padding: '1.25rem 1rem 1rem 1rem',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              textAlign: 'center',
+              boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.5)',
+              transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
+              overflow: 'hidden',
+              cursor: 'default',
+            }}
+          >
+            {/* Top Tier Pill */}
             <div
-              key={idx}
-              className="sponsor-card"
               style={{
-                '--hover-border': sponsor.hoverBorderColor,
-                '--hover-shadow': sponsor.hoverBoxShadow,
-                '--hover-bg': sponsor.hoverBackground,
-                padding: '2.4rem 1.5rem 1.6rem 1.5rem',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                borderRadius: '1.35rem',
-                background: 'rgba(14, 22, 48, 0.45)',
-                border: '1px solid rgba(255, 255, 255, 0.16)',
-                backdropFilter: 'blur(24px)',
-                WebkitBackdropFilter: 'blur(24px)',
-                boxShadow:
-                  '0 20px 45px -12px rgba(0, 0, 0, 0.75), inset 0 1px 1px rgba(255, 255, 255, 0.25), inset 0 -1px 1px rgba(0, 0, 0, 0.4)',
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                cursor: 'pointer',
-                position: 'relative',
-                minHeight: '260px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.35rem',
+                padding: '0.2rem 0.65rem',
+                borderRadius: '9999px',
+                background: 'rgba(255, 255, 255, 0.05)',
+                border: `1px solid ${sponsor.tierBorder}`,
+                boxShadow: sponsor.tierGlow,
+                marginBottom: '1rem',
               }}
             >
-              {/* Tipo de Patrocinador - Saltando para fora na parte superior */}
-              <div
+              <span
                 style={{
-                  position: 'absolute',
-                  top: '-16px',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: '0.38rem 1.25rem',
-                  borderRadius: '0.65rem',
-                  background: 'rgba(9, 14, 34, 0.94)',
-                  border: `1px solid ${sponsor.tierBorder}`,
-                  backdropFilter: 'blur(16px)',
-                  WebkitBackdropFilter: 'blur(16px)',
-                  boxShadow: `0 8px 22px -4px rgba(0, 0, 0, 0.75), inset 0 1px 1px rgba(255, 255, 255, 0.35), ${sponsor.tierGlow}`,
-                  zIndex: 10,
-                  whiteSpace: 'nowrap',
+                  width: '6px',
+                  height: '6px',
+                  borderRadius: '50%',
+                  background: sponsor.tierColor,
+                  boxShadow: `0 0 8px ${sponsor.tierColor}`,
+                  display: 'inline-block',
+                }}
+              />
+              <span
+                style={{
+                  fontSize: '0.62rem',
+                  fontWeight: 800,
+                  fontFamily: 'var(--font-heading)',
+                  color: sponsor.tierColor,
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
                 }}
               >
-                <span
-                  style={{
-                    color: sponsor.tierColor,
-                    fontSize: '0.78rem',
-                    fontWeight: 800,
-                    letterSpacing: '0.09em',
-                    textTransform: 'uppercase',
-                    fontFamily: 'var(--font-heading)',
-                    textShadow:
-                      sponsor.tier === 'Prata'
-                        ? '0 0 10px rgba(255, 255, 255, 0.7)'
-                        : sponsor.tier === 'Diamante'
-                        ? '0 0 10px rgba(0, 240, 255, 0.6)'
-                        : '0 0 10px rgba(251, 191, 36, 0.6)',
-                  }}
-                >
-                  {sponsor.tier}
-                </span>
-              </div>
-
-              {/* Logo Directly in the Card */}
-              <div
-                style={{
-                  height: '75px',
-                  width: '100%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBottom: '1rem',
-                }}
-              >
-                <img
-                  src={sponsor.logo}
-                  alt={sponsor.name}
-                  style={{
-                    maxHeight: sponsor.logoHeight || '46px',
-                    maxWidth: '85%',
-                    width: 'auto',
-                    height: 'auto',
-                    objectFit: 'contain',
-                    filter: sponsor.isWhite ? 'brightness(0) invert(1)' : 'drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5))',
-                    transition: 'transform 0.3s ease',
-                  }}
-                  className="sponsor-logo-img"
-                />
-              </div>
-
-              {/* Sponsor Name & Explanatory Phrase */}
-              <div style={{ marginTop: 'auto' }}>
-                <h4
-                  style={{
-                    fontSize: '1.1rem',
-                    fontWeight: 700,
-                    color: '#ffffff',
-                    fontFamily: 'var(--font-heading)',
-                    marginBottom: '0.35rem',
-                  }}
-                >
-                  {sponsor.name}
-                </h4>
-
-                <p
-                  style={{
-                    color: '#94a3b8',
-                    fontSize: '0.82rem',
-                    lineHeight: 1.5,
-                    margin: 0,
-                  }}
-                >
-                  {sponsor.description}
-                </p>
-              </div>
+                {sponsor.tier}
+              </span>
             </div>
-          ))}
-        </div>
+
+            {/* Logo Area */}
+            <div
+              style={{
+                height: '56px',
+                width: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginBottom: '0.75rem',
+              }}
+            >
+              <img
+                src={sponsor.logo}
+                alt={`Logo ${sponsor.name}`}
+                style={{
+                  maxHeight: sponsor.logoHeight,
+                  maxWidth: '85%',
+                  objectFit: 'contain',
+                  filter: sponsor.isWhite
+                    ? 'brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.4))'
+                    : 'drop-shadow(0 0 12px rgba(255, 255, 255, 0.2))',
+                  transition: 'transform 0.3s ease',
+                }}
+                className="sponsor-logo-img"
+              />
+            </div>
+
+            {/* Description */}
+            <p
+              style={{
+                fontSize: '0.78rem',
+                color: '#94a3b8',
+                lineHeight: 1.45,
+                margin: 0,
+                fontWeight: 400,
+              }}
+            >
+              {sponsor.description}
+            </p>
+
+            {/* Subtle Bottom Glow Line */}
+            <div
+              style={{
+                position: 'absolute',
+                bottom: 0,
+                left: '20%',
+                right: '20%',
+                height: '1px',
+                background: `linear-gradient(90deg, transparent, ${sponsor.tierColor}, transparent)`,
+                opacity: 0.4,
+              }}
+            />
+          </div>
+        ))}
       </div>
 
       <style>{`
-        .sponsor-card:hover {
-          transform: translateY(-6px);
-          background: var(--hover-bg, rgba(22, 34, 72, 0.65)) !important;
-          border-color: var(--hover-border, rgba(0, 210, 255, 0.6)) !important;
-          box-shadow: var(--hover-shadow, 0 22px 45px -10px rgba(0, 112, 243, 0.35)) !important;
+        .sponsor-card-neo:hover {
+          transform: translateY(-5px);
+          border-color: var(--hover-border) !important;
+          box-shadow: var(--hover-shadow) !important;
+          background: var(--hover-bg) !important;
         }
-        .sponsor-card:hover .sponsor-logo-img {
+
+        .sponsor-card-neo:hover .sponsor-logo-img {
           transform: scale(1.06);
         }
+
         @media (max-width: 992px) {
           .sponsors-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-            gap: 1.25rem !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 0.85rem !important;
           }
         }
+
+        @media (max-width: 768px) {
+          .sponsors-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 0.75rem !important;
+          }
+        }
+
         @media (max-width: 576px) {
           .sponsors-grid {
             grid-template-columns: 1fr !important;
+            max-width: 320px;
+            margin: 0 auto;
           }
         }
       `}</style>

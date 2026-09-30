@@ -197,6 +197,7 @@ export default function HeroBanner({ onOpenModal }) {
               justifyContent: 'center',
               paddingTop: '0.75rem',
             }}
+            className="hero-cta-group"
           >
             <a
               href="#ingressos"
@@ -314,11 +315,44 @@ export default function HeroBanner({ onOpenModal }) {
         }
 
         @media (max-width: 768px) {
+          #inicio {
+            padding-top: 86px !important;
+            padding-bottom: 2rem !important;
+          }
           .monumental-apex-logo {
-            max-width: 340px !important;
+            max-width: 320px !important;
           }
           .monumental-mascot-base {
-            max-width: 360px !important;
+            max-width: 320px !important;
+          }
+        }
+
+        @media (max-width: 540px) {
+          .hero-cta-group {
+            flex-direction: column !important;
+            width: 100% !important;
+            gap: 0.85rem !important;
+          }
+          .monumental-btn-primary, .monumental-btn-secondary {
+            width: 100% !important;
+            max-width: 270px !important;
+            padding: 0.75rem 1.2rem !important;
+            font-size: 0.88rem !important;
+            justify-content: center !important;
+          }
+          .monumental-apex-logo {
+            max-width: 270px !important;
+          }
+          .monumental-mascot-base {
+            max-width: 260px !important;
+            margin-top: 0 !important;
+          }
+        }
+        @media (max-width: 380px) {
+          .monumental-btn-primary, .monumental-btn-secondary {
+            padding: 0.65rem 1rem !important;
+            font-size: 0.82rem !important;
+            max-width: 250px !important;
           }
         }
       `}</style>

@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import { X, CheckCircle, Sparkles, Send, User, Mail } from 'lucide-react';
+import { X, CheckCircle, Sparkles, Send, User, Mail, ShoppingBag } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
-export default function ModalInscricao({ isOpen, onClose }) {
+export default function ModalInscricao({
+  isOpen,
+  onClose,
+  symplaUrl = 'https://www.sympla.com.br/evento/facom-techweek/3599637',
+}) {
   const [formData, setFormData] = useState({
     nome: '',
     email: '',
@@ -70,6 +74,7 @@ export default function ModalInscricao({ isOpen, onClose }) {
       onClick={onClose}
     >
       <div
+        className="modal-dialog-card"
         style={{
           background: 'rgba(11, 15, 34, 0.98)',
           border: '1px solid rgba(139, 92, 246, 0.35)',
@@ -79,7 +84,8 @@ export default function ModalInscricao({ isOpen, onClose }) {
           width: '100%',
           padding: '2.5rem 2rem',
           position: 'relative',
-          overflow: 'hidden',
+          overflowY: 'auto',
+          maxHeight: '92vh',
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -116,16 +122,49 @@ export default function ModalInscricao({ isOpen, onClose }) {
 
         {!submitted ? (
           <div>
-            <div style={{ textAlign: 'center', marginBottom: '1.75rem' }}>
+            <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
               <span className="badge-tag" style={{ marginBottom: '0.5rem' }}>
                 <Sparkles size={12} /> INSCRIÇÃO OFICIAL
               </span>
               <h3 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#ffffff' }}>
-                Garanta Seu Ingresso
+                Garanta Seu Ingresso & Camiseta
               </h3>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginTop: '0.35rem' }}>
                 21 a 24 de Outubro • FACOM / UFU
               </p>
+
+              {/* Botão Direto para o Sympla */}
+              <a
+                href={symplaUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.6rem',
+                  padding: '0.85rem 1.25rem',
+                  borderRadius: '0.75rem',
+                  background: 'linear-gradient(135deg, #00d2ff 0%, #2563eb 100%)',
+                  color: '#ffffff',
+                  fontWeight: 800,
+                  fontSize: '0.92rem',
+                  textDecoration: 'none',
+                  marginTop: '1.15rem',
+                  boxShadow: '0 0 20px rgba(0, 210, 255, 0.4)',
+                }}
+              >
+                <ShoppingBag size={18} />
+                <span>COMPRAR DIRETO NO SYMPLA (INGRESSOS & CAMISAS)</span>
+              </a>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', margin: '1.25rem 0 0.5rem 0' }}>
+                <div style={{ flex: 1, height: '1px', background: 'rgba(255, 255, 255, 0.1)' }} />
+                <span style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  ou pré-cadastre-se abaixo
+                </span>
+                <div style={{ flex: 1, height: '1px', background: 'rgba(255, 255, 255, 0.1)' }} />
+              </div>
             </div>
 
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
@@ -136,58 +175,54 @@ export default function ModalInscricao({ isOpen, onClose }) {
                 <div style={{ position: 'relative' }}>
                   <input
                     type="text"
-                    required
                     name="nome"
+                    required
                     value={formData.nome}
                     onChange={handleChange}
-                    placeholder="Ex: Alan Turing"
+                    placeholder="Seu nome completo"
                     style={{
                       width: '100%',
-                      padding: '0.75rem 1rem 0.75rem 2.5rem',
+                      padding: '0.75rem 1rem 0.75rem 2.6rem',
                       background: 'rgba(255, 255, 255, 0.05)',
-                      border: '1px solid rgba(139, 92, 246, 0.25)',
-                      borderRadius: '0.6rem',
+                      border: '1px solid rgba(59, 130, 246, 0.3)',
+                      borderRadius: '0.65rem',
                       color: '#ffffff',
-                      fontSize: '0.95rem',
+                      fontSize: '0.9rem',
                       outline: 'none',
                     }}
-                    onFocus={(e) => (e.target.style.borderColor = '#a78bfa')}
-                    onBlur={(e) => (e.target.style.borderColor = 'rgba(139, 92, 246, 0.25)')}
                   />
-                  <User size={16} color="#a78bfa" style={{ position: 'absolute', left: '0.85rem', top: '50%', transform: 'translateY(-50%)' }} />
+                  <User size={16} color="#60a5fa" style={{ position: 'absolute', left: '0.9rem', top: '50%', transform: 'translateY(-50%)' }} />
                 </div>
               </div>
 
               <div>
                 <label style={{ display: 'block', fontSize: '0.85rem', color: '#ffffff', fontWeight: 600, marginBottom: '0.4rem' }}>
-                  E-mail Acadêmico / Principal
+                  E-mail
                 </label>
                 <div style={{ position: 'relative' }}>
                   <input
                     type="email"
-                    required
                     name="email"
+                    required
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="seu.email@ufu.br"
+                    placeholder="seu.email@exemplo.com"
                     style={{
                       width: '100%',
-                      padding: '0.75rem 1rem 0.75rem 2.5rem',
+                      padding: '0.75rem 1rem 0.75rem 2.6rem',
                       background: 'rgba(255, 255, 255, 0.05)',
-                      border: '1px solid rgba(139, 92, 246, 0.25)',
-                      borderRadius: '0.6rem',
+                      border: '1px solid rgba(59, 130, 246, 0.3)',
+                      borderRadius: '0.65rem',
                       color: '#ffffff',
-                      fontSize: '0.95rem',
+                      fontSize: '0.9rem',
                       outline: 'none',
                     }}
-                    onFocus={(e) => (e.target.style.borderColor = '#a78bfa')}
-                    onBlur={(e) => (e.target.style.borderColor = 'rgba(139, 92, 246, 0.25)')}
                   />
-                  <Mail size={16} color="#a78bfa" style={{ position: 'absolute', left: '0.85rem', top: '50%', transform: 'translateY(-50%)' }} />
+                  <Mail size={16} color="#60a5fa" style={{ position: 'absolute', left: '0.9rem', top: '50%', transform: 'translateY(-50%)' }} />
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              <div className="modal-grid-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                 <div>
                   <label style={{ display: 'block', fontSize: '0.85rem', color: '#ffffff', fontWeight: 600, marginBottom: '0.4rem' }}>
                     Tipo de Ingresso
@@ -198,24 +233,25 @@ export default function ModalInscricao({ isOpen, onClose }) {
                     onChange={handleChange}
                     style={{
                       width: '100%',
-                      padding: '0.75rem',
-                      background: '#11172e',
-                      border: '1px solid rgba(59, 130, 246, 0.25)',
-                      borderRadius: '0.6rem',
+                      padding: '0.75rem 1rem',
+                      background: '#090d21',
+                      border: '1px solid rgba(59, 130, 246, 0.3)',
+                      borderRadius: '0.65rem',
                       color: '#ffffff',
                       fontSize: '0.9rem',
                       outline: 'none',
+                      cursor: 'pointer',
                     }}
                   >
-                    <option value="facom_ufu">Aluno FACOM / UFU (R$ 45,00)</option>
-                    <option value="outros_ufu">Alunos Outros Cursos UFU (R$ 50,00)</option>
-                    <option value="externo">Público Externo (R$ 60,00)</option>
+                    <option value="facom">Aluno FACOM (UFU) - R$ 40</option>
+                    <option value="academico">Aluno UFU / Professor - R$ 50</option>
+                    <option value="comunidade">Comunidade Geral - R$ 60</option>
                   </select>
                 </div>
 
                 <div>
                   <label style={{ display: 'block', fontSize: '0.85rem', color: '#ffffff', fontWeight: 600, marginBottom: '0.4rem' }}>
-                    Trilha Principal
+                    Trilha de Interesse
                   </label>
                   <select
                     name="trilhaInteresse"
@@ -223,20 +259,21 @@ export default function ModalInscricao({ isOpen, onClose }) {
                     onChange={handleChange}
                     style={{
                       width: '100%',
-                      padding: '0.75rem',
-                      background: '#11172e',
-                      border: '1px solid rgba(59, 130, 246, 0.25)',
-                      borderRadius: '0.6rem',
+                      padding: '0.75rem 1rem',
+                      background: '#090d21',
+                      border: '1px solid rgba(59, 130, 246, 0.3)',
+                      borderRadius: '0.65rem',
                       color: '#ffffff',
                       fontSize: '0.9rem',
                       outline: 'none',
+                      cursor: 'pointer',
                     }}
                   >
                     <option value="ia">Inteligência Artificial</option>
-                    <option value="cyber">Cibersegurança</option>
                     <option value="cloud">Cloud & DevOps</option>
-                    <option value="games">Jogos Digitais</option>
-                    <option value="dados">Engenharia de Dados</option>
+                    <option value="software">Engenharia de Software</option>
+                    <option value="security">Segurança da Informação</option>
+                    <option value="games">Jogos e Gráficos</option>
                   </select>
                 </div>
               </div>
@@ -299,6 +336,20 @@ export default function ModalInscricao({ isOpen, onClose }) {
           </div>
         )}
       </div>
+
+      <style>{`
+        @media (max-width: 540px) {
+          .modal-dialog-card {
+            padding: 1.8rem 1.15rem !important;
+            border-radius: 1.15rem !important;
+            margin: 0 0.75rem !important;
+          }
+          .modal-grid-2col {
+            grid-template-columns: 1fr !important;
+            gap: 0.85rem !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

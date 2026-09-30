@@ -1,0 +1,11 @@
+services:
+  facom-techweek:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: facom-techweek-site
+    restart: always
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production

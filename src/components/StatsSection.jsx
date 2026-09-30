@@ -583,8 +583,9 @@ export default function StatsSection() {
             className="stats-below-keyboard-grid"
           >
             {/* Stat 1: 450+ PARTICIPANTES */}
-            <div style={{ textAlign: 'center', padding: '0.5rem 0.5rem' }}>
+            <div style={{ textAlign: 'center', padding: '0.5rem 0.25rem' }}>
               <span
+                className="stat-val-text"
                 style={{
                   fontSize: 'clamp(2.5rem, 4.5vw, 4rem)',
                   fontWeight: 900,
@@ -599,6 +600,7 @@ export default function StatsSection() {
                 {valParticipantes}+
               </span>
               <span
+                className="stat-label-text"
                 style={{
                   color: '#c084fc',
                   fontSize: 'clamp(0.72rem, 1vw, 0.84rem)',
@@ -615,8 +617,9 @@ export default function StatsSection() {
             </div>
 
             {/* Stat 2: 13+ ANOS / TRADIÇÃO FACOM */}
-            <div style={{ textAlign: 'center', padding: '0.5rem 0.5rem' }} className="stat-sub-col">
+            <div style={{ textAlign: 'center', padding: '0.5rem 0.25rem' }} className="stat-sub-col">
               <span
+                className="stat-val-text"
                 style={{
                   fontSize: 'clamp(2.5rem, 4.5vw, 4rem)',
                   fontWeight: 900,
@@ -631,6 +634,7 @@ export default function StatsSection() {
                 {valTradicao}+
               </span>
               <span
+                className="stat-label-text"
                 style={{
                   color: '#c084fc',
                   fontSize: 'clamp(0.72rem, 1vw, 0.84rem)',
@@ -649,8 +653,9 @@ export default function StatsSection() {
             </div>
 
             {/* Stat 3: 40 HORAS / IMERSÃO / CERTIFICADO */}
-            <div style={{ textAlign: 'center', padding: '0.5rem 0.5rem' }} className="stat-sub-col">
+            <div style={{ textAlign: 'center', padding: '0.5rem 0.25rem' }} className="stat-sub-col">
               <span
+                className="stat-val-text"
                 style={{
                   fontSize: 'clamp(2.5rem, 4.5vw, 4rem)',
                   fontWeight: 900,
@@ -665,6 +670,7 @@ export default function StatsSection() {
                 {valImersao}
               </span>
               <span
+                className="stat-label-text"
                 style={{
                   color: '#c084fc',
                   fontSize: 'clamp(0.72rem, 1vw, 0.84rem)',
@@ -683,8 +689,9 @@ export default function StatsSection() {
             </div>
 
             {/* Stat 4: 15+ SESSÕES / PALESTRAS & WORKSHOPS */}
-            <div style={{ textAlign: 'center', padding: '0.5rem 0.5rem' }} className="stat-sub-col">
+            <div style={{ textAlign: 'center', padding: '0.5rem 0.25rem' }} className="stat-sub-col">
               <span
+                className="stat-val-text"
                 style={{
                   fontSize: 'clamp(2.5rem, 4.5vw, 4rem)',
                   fontWeight: 900,
@@ -699,6 +706,7 @@ export default function StatsSection() {
                 {valPalestras}+
               </span>
               <span
+                className="stat-label-text"
                 style={{
                   color: '#c084fc',
                   fontSize: 'clamp(0.72rem, 1vw, 0.84rem)',
@@ -885,7 +893,15 @@ export default function StatsSection() {
           }
           .stats-below-keyboard-grid {
             grid-template-columns: repeat(2, 1fr) !important;
-            gap: 1rem 0.5rem !important;
+            gap: 1.25rem 0.5rem !important;
+          }
+          .stat-val-text {
+            font-size: clamp(1.85rem, 6.2vw, 2.6rem) !important;
+            margin-bottom: 0.35rem !important;
+          }
+          .stat-label-text {
+            font-size: 0.68rem !important;
+            letter-spacing: 0.07em !important;
           }
         }
 
@@ -906,6 +922,12 @@ export default function StatsSection() {
           .keyboard-3d-perspective-box {
             height: 150px !important;
           }
+          .stat-val-text {
+            font-size: 1.85rem !important;
+          }
+          .stat-label-text {
+            font-size: 0.64rem !important;
+          }
         }
 
         @media (max-width: 360px) {
@@ -921,6 +943,9 @@ export default function StatsSection() {
           }
           .keyboard-3d-perspective-box {
             height: 135px !important;
+          }
+          .stat-val-text {
+            font-size: 1.65rem !important;
           }
         }
       `}</style>

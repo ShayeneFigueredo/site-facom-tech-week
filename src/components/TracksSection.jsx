@@ -389,6 +389,9 @@ export default function TracksSection() {
           box-shadow: 0 10px 30px rgba(0, 210, 255, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.4) !important;
         }
         @media (max-width: 768px) {
+          #trilhas {
+            padding: 4rem 0 !important;
+          }
           .track-pill-item {
             padding: 0.65rem 1.15rem !important;
             font-size: 0.85rem !important;
@@ -406,6 +409,30 @@ export default function TracksSection() {
           .center-lens-circle h3 {
             font-size: 1.4rem !important;
             letter-spacing: 0.1em !important;
+          }
+        }
+        @media (max-width: 480px) {
+          #trilhas {
+            padding: 3rem 0 !important;
+          }
+          .center-lens-circle {
+            width: 140px !important;
+            height: 140px !important;
+            padding: 0.65rem !important;
+          }
+          .center-lens-circle h3 {
+            font-size: 1.05rem !important;
+          }
+          .track-pill-item {
+            padding: 0.5rem 0.9rem !important;
+            margin-right: 1rem !important;
+          }
+          .track-pill-item span {
+            font-size: 0.85rem !important;
+          }
+          .marquee-track-stage {
+            padding: 2rem 0 !important;
+            gap: 1.25rem !important;
           }
         }
       `}</style>

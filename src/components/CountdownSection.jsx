@@ -96,6 +96,7 @@ export default function CountdownSection() {
 
         {/* Digital Countdown Timer Display */}
         <div
+          className="countdown-timer-grid"
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -203,15 +204,24 @@ export default function CountdownSection() {
           box-shadow: 0 20px 45px -10px rgba(0, 112, 243, 0.35), 0 0 30px rgba(121, 40, 202, 0.25) !important;
         }
         @media (max-width: 640px) {
+          #countdown {
+            padding: 2.5rem 0 !important;
+          }
           .countdown-colon {
             display: none !important;
           }
+          .countdown-timer-grid {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 0.75rem !important;
+            max-width: 310px;
+            margin: 0 auto;
+          }
           .countdown-unit-card {
-            min-width: 70px !important;
-            padding: 1rem 0.65rem 0.85rem 0.65rem !important;
-            border-radius: 0.85rem !important;
-            flex: 1 1 calc(50% - 0.75rem);
-            max-width: 140px;
+            min-width: unset !important;
+            width: 100% !important;
+            padding: 1.15rem 0.5rem 0.95rem 0.5rem !important;
+            border-radius: 0.9rem !important;
           }
           .countdown-unit-card span:first-of-type {
             font-size: 2.2rem !important;

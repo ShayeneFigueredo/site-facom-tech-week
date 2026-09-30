@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from './components/Navbar.jsx';
 import HeroBanner from './components/HeroBanner.jsx';
-import PartnersBar from './components/PartnersBar.jsx';
 import CountdownSection from './components/CountdownSection.jsx';
 import TracksSection from './components/TracksSection.jsx';
 import StatsSection from './components/StatsSection.jsx';
@@ -10,41 +9,29 @@ import SpeakersSection from './components/SpeakersSection.jsx';
 import TicketsSection from './components/TicketsSection.jsx';
 import FaqSection from './components/FaqSection.jsx';
 import Footer from './components/Footer.jsx';
-import ModalInscricao from './components/ModalInscricao.jsx';
 
 export default function App() {
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const handleOpenModal = () => {
-    setModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setModalOpen(false);
-  };
+  const symplaUrl = 'https://www.sympla.com.br/evento/facom-techweek/3599637';
 
   return (
     <div className="app-container" style={{ minHeight: '100vh', backgroundColor: '#050816' }}>
       {/* Fixed Navigation Bar */}
-      <Navbar onOpenModal={handleOpenModal} />
+      <Navbar symplaUrl={symplaUrl} />
 
       {/* Main Banner Hero & Sponsors */}
       <main>
-        <HeroBanner onOpenModal={handleOpenModal} />
+        <HeroBanner symplaUrl={symplaUrl} />
         <CountdownSection />
         <StatsSection />
         <TracksSection />
         <ScheduleSection />
         <SpeakersSection />
-        <TicketsSection onOpenModal={handleOpenModal} />
+        <TicketsSection symplaUrl={symplaUrl} />
         <FaqSection />
       </main>
 
       {/* Footer */}
-      <Footer onOpenModal={handleOpenModal} />
-
-      {/* Interactive Registration Modal */}
-      <ModalInscricao isOpen={modalOpen} onClose={handleCloseModal} />
+      <Footer symplaUrl={symplaUrl} />
     </div>
   );
 }
