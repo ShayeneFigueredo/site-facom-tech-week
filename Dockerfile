@@ -27,8 +27,8 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Copiar os arquivos estáticos compilados da etapa de build
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Expor a porta 80 do container
-EXPOSE 80
+# Expor as portas 80 e 443 (HTTP e HTTPS) do container
+EXPOSE 80 443
 
 # Iniciar o Nginx em modo foreground
 CMD ["nginx", "-g", "daemon off;"]
