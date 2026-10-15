@@ -267,7 +267,7 @@ export const GROUPED_SCHEDULE_DATA = {
         },
         {
           title: 'SEBRAE - Mercado Digital de Pequenos Negócios',
-          speaker: 'Thiago (SEBRAE)',
+          speaker: 'SEBRAE',
           location: 'Outros Espaços / Salas',
           type: 'Workshop de Empreendedorismo',
           tag: null,
@@ -302,7 +302,7 @@ export const GROUPED_SCHEDULE_DATA = {
         },
         {
           title: 'SEBRAE - Comportamento Empreendedor na Era Digital',
-          speaker: 'Thiago (SEBRAE)',
+          speaker: 'SEBRAE',
           location: 'Outros Espaços / Salas',
           type: 'Workshop de Empreendedorismo',
           tag: null,
@@ -326,7 +326,7 @@ export const GROUPED_SCHEDULE_DATA = {
         {
     
           title: 'SEBRAE pela sua Carreira Profissional',
-          speaker: 'Thiago (SEBRAE)',
+          speaker: 'SEBRAE',
           location: 'Outros Espaços / Salas',
           type: 'Palestra de Carreira',
           tag: null,
