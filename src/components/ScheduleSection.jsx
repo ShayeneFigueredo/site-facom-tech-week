@@ -126,20 +126,6 @@ export const GROUPED_SCHEDULE_DATA = {
       ],
     },
     {
-      time: '16:30 - 17:30',
-      sessions: [
-        {
-          title: 'Palestra Dra. Daniela Ushizima',
-          speaker: 'Dra. Daniela Ushizima (Berkeley Institute for Data Science - BIDS)',
-          location: 'Auditório 1 (5R - AB)',
-          type: 'Palestra Internacional',
-          tag: null,
-          description: 'Pesquisa avançada em ciência de dados e inteligência artificial pelo renomado instituto da UC Berkeley.',
-          isHighlight: true,
-        },
-      ],
-    },
-    {
       time: '17:30 - 19:00',
       sessions: [
         {
