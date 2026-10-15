@@ -546,12 +546,12 @@ export const GROUPED_SCHEDULE_DATA = {
       time: '19:00 - 20:30',
       sessions: [
         {
-          title: 'PAINEL FERDINANDO IA - O Futuro & Fronteiras da Inteligência Artificial',
+          title: 'PAINEL: O Futuro & Fronteiras da Inteligência Artificial - De UberlândIA ao Vale do Silício: como a Langflow se tornou referência mundial em Inteligência Artificial e foi reconhecida pela NVIDIA, IBM e outros gigantes da tecnologia',
           speaker: 'Ferdinando Kun & Rodrigo Nader',
           location: 'Auditório 1 & 2 (Hall 5R)',
           type: 'Painel Magna Plenário',
           tag: null,
-          description: 'De UberlândIA ao Vale do Silício: como a Langflow se tornou referência mundial em Inteligência Artificial e foi reconhecida pela NVIDIA, IBM e outros gigantes da tecnologia.',
+          description: 'Debate com Ferdinando Kun e Rodrigo Nader sobre a trajetória da Langflow, inovação em IA, parcerias com gigantes globais da tecnologia e as novas fronteiras do mercado.',
           isHighlight: true,
         },
       ],
