@@ -116,7 +116,7 @@ export const GROUPED_SCHEDULE_DATA = {
         {
           title: 'Diálogo Meninas: #Include <Girls> e Gurias na Computação UNIPAMPA',
           speaker: '#Include <Girls> & Gurias na Computação',
-          location: 'Sala 1B120 (Outros Espaços)',
+          location: 'Sala 1B126',
           type: 'Roda de Conversa',
           tag: 'Meninas Digitais',
           tagColor: '#f43f5e',
@@ -126,7 +126,7 @@ export const GROUPED_SCHEDULE_DATA = {
       ],
     },
     {
-      time: '16:30 - 18:00',
+      time: '16:30 - 17:30',
       sessions: [
         {
           title: 'Palestra Dra. Daniela Ushizima',
@@ -140,7 +140,7 @@ export const GROUPED_SCHEDULE_DATA = {
       ],
     },
     {
-      time: '18:00 - 19:30',
+      time: '17:30 - 19:00',
       sessions: [
         {
           title: 'Palestra do VI Meninas na Computação',
@@ -156,20 +156,7 @@ export const GROUPED_SCHEDULE_DATA = {
       ],
     },
     {
-      time: '18:30 - 19:00',
-      isBreak: true,
-      sessions: [
-        {
-          title: 'Intervalo Coffee Break & Networking',
-          speaker: 'Confraternização Geral',
-          location: 'Hall 5R & Áreas de Convivência',
-          type: 'Coffee Break',
-          description: 'Momento para café, descanso e novas conexões entre participantes e palestrantes.',
-        },
-      ],
-    },
-    {
-      time: '19:30 - 21:00',
+      time: '19:00 - 20:30',
       sessions: [
         {
           title: 'Mesa de Abertura Solene da FACOM TechWeek',
