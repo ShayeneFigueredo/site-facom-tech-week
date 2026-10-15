@@ -482,15 +482,14 @@ export const GROUPED_SCHEDULE_DATA = {
       time: '15:30 - 17:00',
       sessions: [
         {
-          title: 'Kanastra: Produto x Design',
-          speaker: 'Time de Produto e Design da Kanastra',
+          title: 'Kanastra: DevOps e Dados',
+          speaker: 'Henrique Brito Silva (Lead Engineer) & Odelmo Junior (Data Engineer)',
           location: 'Auditório 1 (5R - AB)',
           type: 'Palestra Técnica',
           tag: 'Patrocinador',
           sponsorName: 'Kanastra',
           tagColor: '#00d2ff',
-          badgeNote: 'WTDCC',
-          description: 'A convergência entre engenharia, design de interface e estratégia de produto em plataformas financeiras.',
+          description: 'Henrique Brito é Engineering Lead da Kanastra, onde entrou em 2022 como o primeiro membro do time de dados. Ex-aluno da UFU (Engenharia Mecatrônica), atua com infraestrutura e plataforma. Odelmo Junior é Senior Data Engineer da Kanastra e especialista em Apache Spark e dados em larga escala. Ex-aluno da UFU (graduação e mestrado em IA), passou por Ambev e Databricks.',
           isSponsor: true,
           isHighlight: true,
         },
