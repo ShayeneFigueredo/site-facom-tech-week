@@ -19,7 +19,7 @@ export const OFFICIAL_DAYS = [
   { dayNumber: 1, date: '21/10', weekDay: 'Quarta-feira', label: 'Dia 01 - 21/10', subtitle: 'Abertura & IA Aplicada' },
   { dayNumber: 2, date: '22/10', weekDay: 'Quinta-feira', label: 'Dia 02 - 22/10', subtitle: 'Carreiras, Automação & IA' },
   { dayNumber: 3, date: '23/10', weekDay: 'Sexta-feira', label: 'Dia 03 - 23/10', subtitle: 'Cloud, Cyber & AgroTech' },
-  { dayNumber: 4, date: '24/10', weekDay: 'Sábado', label: 'Dia 04 - 24/10', subtitle: 'Hackathon FACOM TechWeek' },
+  { dayNumber: 4, date: '24/10', weekDay: 'Sábado', label: 'Dia 04 - 24/10', subtitle: 'Hackathon' },
 ];
 
 export const SCHEDULE_LEGEND = [
