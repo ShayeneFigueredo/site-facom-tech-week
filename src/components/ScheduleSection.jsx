@@ -338,6 +338,7 @@ export const GROUPED_SCHEDULE_DATA = {
           isHighlight: true,
         },
         {
+    
           title: 'SEBRAE pela sua Carreira Profissional',
           speaker: 'Thiago (SEBRAE)',
           location: 'Outros Espaços / Salas',

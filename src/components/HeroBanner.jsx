@@ -288,9 +288,9 @@ export default function HeroBanner({ onOpenModal }) {
         </div>
 
         {/* ===================================================================
-            PATROCINADORES OCULTOS TEMPORARIAMENTE
+            PATROCINADORES OFICIAIS DO EVENTO
             =================================================================== */}
-        {/* <PartnersBar /> */}
+        <PartnersBar />
       </div>
 
       <style>{`
