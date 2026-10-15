@@ -166,7 +166,7 @@ export const GROUPED_SCHEDULE_DATA = {
           tag: 'Patrocinador',
           sponsorName: 'Kanastra',
           tagColor: '#00d2ff',
-          description: 'Como uma fintech de alto crescimento estrutura seus times de engenharia e potencializa a entrega com IA.',
+          description: 'Como uma fintech de alto crescimento estrutura seus times de engenharia e potencializa a entrega com IA. Lucas Azambuja é Associate Partner da Kanastra. Com mais de 15 anos de carreira e passagens por PagBank e Pravaler, é especialista em performance e sistemas escaláveis.',
           isHighlight: true,
           isSponsor: true,
         },
