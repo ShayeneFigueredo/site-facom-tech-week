@@ -547,11 +547,11 @@ export const GROUPED_SCHEDULE_DATA = {
       sessions: [
         {
           title: 'PAINEL FERDINANDO IA - O Futuro & Fronteiras da Inteligência Artificial',
-          speaker: 'Painelistas Convidados, Pesquisadores & Mediadores',
+          speaker: 'Ferdinando Kun & Rodrigo Nader',
           location: 'Auditório 1 & 2 (Hall 5R)',
           type: 'Painel Magna Plenário',
           tag: null,
-          description: 'Debate plenário sobre novas arquiteturas neurais, ética, agentes autônomos e o futuro do trabalho com IA.',
+          description: 'De UberlândIA ao Vale do Silício: como a Langflow se tornou referência mundial em Inteligência Artificial e foi reconhecida pela NVIDIA, IBM e outros gigantes da tecnologia.',
           isHighlight: true,
         },
       ],
