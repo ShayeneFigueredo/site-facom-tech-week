@@ -144,14 +144,23 @@ export default function FaqSection() {
         @media (max-width: 640px) {
           #faq {
             padding: 3.5rem 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            overflow: hidden !important;
           }
           .faq-button {
             padding: 1rem 1.1rem !important;
             font-size: 0.92rem !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
           }
           .faq-answer {
             padding: 0 1.1rem 1rem 1.1rem !important;
             font-size: 0.88rem !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
           }
         }
       `}</style>

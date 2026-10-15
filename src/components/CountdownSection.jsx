@@ -206,6 +206,9 @@ export default function CountdownSection() {
         @media (max-width: 640px) {
           #countdown {
             padding: 2.5rem 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            overflow: hidden !important;
           }
           .countdown-colon {
             display: none !important;
@@ -214,14 +217,18 @@ export default function CountdownSection() {
             display: grid !important;
             grid-template-columns: repeat(2, 1fr) !important;
             gap: 0.75rem !important;
-            max-width: 310px;
-            margin: 0 auto;
+            width: 100% !important;
+            max-width: 310px !important;
+            margin: 0 auto !important;
+            box-sizing: border-box !important;
           }
           .countdown-unit-card {
             min-width: unset !important;
             width: 100% !important;
+            max-width: 100% !important;
             padding: 1.15rem 0.5rem 0.95rem 0.5rem !important;
             border-radius: 0.9rem !important;
+            box-sizing: border-box !important;
           }
           .countdown-unit-card span:first-of-type {
             font-size: 2.2rem !important;

@@ -173,6 +173,9 @@ export default function StatsSection() {
         background:
           'radial-gradient(circle at 75% 25%, rgba(139, 92, 246, 0.45) 0%, rgba(99, 32, 238, 0.35) 40%, rgba(30, 8, 66, 0.95) 100%), #1c063b',
         borderBottom: '1px solid rgba(168, 85, 247, 0.35)',
+        overflow: 'hidden',
+        width: '100%',
+        maxWidth: '100%',
       }}
     >
       {/* Container pinning the interactive 3D keyboard, screen and stats */}
@@ -184,7 +187,9 @@ export default function StatsSection() {
           flexDirection: 'column',
           justifyContent: 'flex-start',
           padding: '1rem 0 2rem 0',
-          overflow: 'visible',
+          overflow: 'hidden',
+          width: '100%',
+          maxWidth: '100%',
           zIndex: 10,
         }}
       >
@@ -207,8 +212,9 @@ export default function StatsSection() {
             top: '30%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            width: '850px',
-            height: '550px',
+            width: 'min(850px, 90vw)',
+            maxWidth: '100%',
+            height: 'min(550px, 50vh)',
             background: 'radial-gradient(circle, rgba(121, 40, 202, 0.4) 0%, transparent 70%)',
             filter: 'blur(95px)',
             pointerEvents: 'none',
@@ -216,7 +222,7 @@ export default function StatsSection() {
           }}
         />
 
-        <div className="container" style={{ position: 'relative', zIndex: 10, width: '100%', maxWidth: '1150px' }}>
+        <div className="container" style={{ position: 'relative', zIndex: 10, width: '100%', maxWidth: '1150px', boxSizing: 'border-box' }}>
           {/* Top Keystroke Tracker & Controls */}
           <div className="stats-top-controls">
             {/* Letter Indicator Pills */}
@@ -823,6 +829,12 @@ export default function StatsSection() {
             transform: scale(0.82) !important;
             transform-origin: center top !important;
           }
+          .keyboard-3d-perspective-box {
+            overflow: hidden !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            position: relative !important;
+          }
           .stats-below-keyboard-grid {
             grid-template-columns: repeat(2, 1fr) !important;
             gap: 1.5rem !important;
@@ -834,11 +846,15 @@ export default function StatsSection() {
             top: 60px !important;
             min-height: calc(100vh - 60px) !important;
             padding: 0.6rem 0 1.5rem 0 !important;
+            overflow: hidden !important;
+            width: 100% !important;
+            max-width: 100% !important;
           }
           .stats-top-controls {
             justify-content: space-between !important;
             margin-bottom: 0.55rem !important;
             gap: 0.35rem !important;
+            max-width: 100% !important;
           }
           .stats-pills-wrap {
             padding: 0.25rem 0.4rem !important;
@@ -868,13 +884,16 @@ export default function StatsSection() {
             padding: 0.95rem 0.95rem !important;
             border-radius: 0.9rem !important;
             margin-bottom: 0.6rem !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
           }
           .keyboard-chassis {
             width: 780px !important;
             min-width: 780px !important;
             max-width: 780px !important;
             box-sizing: border-box !important;
-            transform: scale(0.48) !important;
+            transform: scale(0.44) !important;
             transform-origin: top center !important;
             margin: 0 auto !important;
           }
@@ -887,13 +906,20 @@ export default function StatsSection() {
             padding-bottom: 0 !important;
             margin: 0 auto !important;
             width: 100% !important;
+            max-width: 100% !important;
+            position: relative !important;
           }
           .stats-below-keyboard-container {
             margin-top: 0.75rem !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            overflow: hidden !important;
           }
           .stats-below-keyboard-grid {
             grid-template-columns: repeat(2, 1fr) !important;
             gap: 1.25rem 0.5rem !important;
+            width: 100% !important;
+            max-width: 100% !important;
           }
           .stat-val-text {
             font-size: clamp(1.85rem, 6.2vw, 2.6rem) !important;
@@ -915,12 +941,16 @@ export default function StatsSection() {
             max-width: 110px;
           }
           .keyboard-chassis {
-            transform: scale(0.41) !important;
+            transform: scale(0.38) !important;
             transform-origin: top center !important;
             margin: 0 auto !important;
           }
           .keyboard-3d-perspective-box {
-            height: 150px !important;
+            height: 145px !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            overflow: hidden !important;
+            position: relative !important;
           }
           .stat-val-text {
             font-size: 1.85rem !important;
@@ -937,12 +967,16 @@ export default function StatsSection() {
             font-size: 0.55rem !important;
           }
           .keyboard-chassis {
-            transform: scale(0.36) !important;
+            transform: scale(0.33) !important;
             transform-origin: top center !important;
             margin: 0 auto !important;
           }
           .keyboard-3d-perspective-box {
-            height: 135px !important;
+            height: 130px !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            overflow: hidden !important;
+            position: relative !important;
           }
           .stat-val-text {
             font-size: 1.65rem !important;

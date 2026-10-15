@@ -160,6 +160,9 @@ export default function TicketsSection({
             border: '1px solid rgba(0, 210, 255, 0.3)',
             boxShadow:
               '0 30px 70px -15px rgba(0, 0, 0, 0.95), 0 0 50px rgba(0, 210, 255, 0.18), inset 0 1px 1px rgba(255, 255, 255, 0.25)',
+            width: '100%',
+            maxWidth: '100%',
+            boxSizing: 'border-box',
           }}
           className="cyber-terminal-container"
         >
@@ -807,12 +810,17 @@ export default function TicketsSection({
         @media (max-width: 992px) {
           .cyber-terminal-container {
             grid-template-columns: 1fr !important;
+            width: 100% !important;
+            max-width: 100% !important;
           }
           .hud-energy-divider {
             display: none !important;
           }
           .hud-status-panel, .hud-interactive-panel {
             padding: 2rem 1.5rem !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
           }
           .tshirt-sympla-card {
             flex-direction: column !important;
@@ -829,12 +837,22 @@ export default function TicketsSection({
         @media (max-width: 640px) {
           #ingressos {
             padding: 3.5rem 0 !important;
+            overflow: hidden !important;
+            width: 100% !important;
+            max-width: 100% !important;
           }
           .cyber-terminal-container {
             border-radius: 1.25rem !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            overflow: hidden !important;
           }
           .hud-status-panel, .hud-interactive-panel {
             padding: 1.5rem 1.15rem !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            overflow: hidden !important;
           }
           .tshirt-info-wrap {
             flex-direction: column !important;
@@ -850,14 +868,21 @@ export default function TicketsSection({
             padding: 0.9rem 1rem !important;
             border-radius: 0.85rem !important;
             gap: 0.75rem !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
           }
           .radio-label-text {
             font-size: 0.92rem !important;
+            word-break: break-word !important;
           }
           .btn-powerup-cta {
-            padding: 0.95rem 1.25rem !important;
-            font-size: 0.92rem !important;
-            letter-spacing: 0.03em !important;
+            padding: 0.95rem 1.1rem !important;
+            font-size: 0.84rem !important;
+            letter-spacing: 0.02em !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
           }
         }
       `}</style>

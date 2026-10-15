@@ -353,13 +353,21 @@ export default function SpeakersSection() {
         @media (max-width: 768px) {
           #palestrantes {
             padding: 3.5rem 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            overflow: hidden !important;
           }
           .glass-card {
             padding: 1.75rem 1.15rem !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
           }
           .speakers-notice-pill {
             font-size: 0.78rem !important;
             padding: 0.5rem 0.95rem !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
           }
         }
         @media (max-width: 540px) {

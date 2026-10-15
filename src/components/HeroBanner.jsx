@@ -161,7 +161,7 @@ export default function HeroBanner({ onOpenModal }) {
           {/* Slogan e Datas Principais */}
           <h2
             style={{
-              fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
+              fontSize: 'clamp(0.92rem, 1.8vw, 1.25rem)',
               fontWeight: 700,
               color: '#f1f5f9',
               fontFamily: 'var(--font-heading)',
@@ -170,6 +170,9 @@ export default function HeroBanner({ onOpenModal }) {
               margin: 0,
               lineHeight: 1.5,
               opacity: 0.95,
+              overflowWrap: 'break-word',
+              wordBreak: 'break-word',
+              maxWidth: '100%',
             }}
           >
             DE 21 A 24 DE OUTUBRO DE 2026 • CAMPUS SANTA MÔNICA • FACOM / UFU

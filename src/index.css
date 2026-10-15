@@ -53,7 +53,9 @@
   --shadow-card: 0 12px 35px -10px rgba(0, 0, 0, 0.8);
 }
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -61,6 +63,11 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -68,9 +75,27 @@ body {
   background-color: var(--bg-main);
   color: var(--text-primary);
   line-height: 1.6;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
+  overscroll-behavior-x: none;
   position: relative;
   min-height: 100vh;
+}
+
+#root,
+.app-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
 }
 
 /* Custom Scrollbar */

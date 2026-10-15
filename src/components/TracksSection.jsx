@@ -391,15 +391,16 @@ export default function TracksSection() {
         @media (max-width: 768px) {
           #trilhas {
             padding: 4rem 0 !important;
-          }
-          .track-pill-item {
-            padding: 0.65rem 1.15rem !important;
-            font-size: 0.85rem !important;
-            margin-right: 1.25rem !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            overflow: hidden !important;
           }
           .marquee-track-stage {
             padding: 3rem 0 !important;
             gap: 1.75rem !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            overflow: hidden !important;
           }
           .center-lens-circle {
             width: 175px !important;

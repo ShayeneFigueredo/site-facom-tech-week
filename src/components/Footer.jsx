@@ -12,6 +12,9 @@ export default function Footer({ onOpenModal }) {
         paddingBottom: '2.5rem',
         position: 'relative',
         zIndex: 20,
+        overflow: 'hidden',
+        width: '100%',
+        maxWidth: '100%',
       }}
     >
       <div className="container">
