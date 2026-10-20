@@ -32,7 +32,7 @@ export const SCHEDULE_LEGEND = [
 /* 
   Official Schedule Grouped by Time Slots
   Unifies unified space name: "Auditório 1 & 2 (Hall 5R)"
-  Identifies official sponsors: Kanastra, BIP, Bayer, Aimirim, Bradesco
+  Identifies official sponsors: Kanastra, BIP, Bayer, Aimirim, Hyperflow, Bradesco
 */
 export const GROUPED_SCHEDULE_DATA = {
   // ========================== DIA 01 ==========================
@@ -127,8 +127,17 @@ export const GROUPED_SCHEDULE_DATA = {
       ],
     },
     {
-      time: '15:30 - 17:30',
+      time: '15:30 - 17:00',
       sessions: [
+        {
+          title: 'Arquitetura de Dados Moderna: Data Lake, Data Warehouse e Lakehouse na Prática',
+          speaker: 'Especialistas em Engenharia de Dados',
+          location: 'Auditório 2 (Hall 5R)',
+          type: 'Palestra Técnica',
+          tag: null,
+          description: 'Conceitos fundamentais e aplicados de engenharia de dados: comparativo prático entre Data Lake, Data Warehouse e a arquitetura unificada de Lakehouse, abordando governança, performance e casos reais.',
+          isHighlight: true,
+        },
         {
           title: 'Apresentações de Pôsteres',
           speaker: 'WTDCC - IC/TCC',
@@ -136,6 +145,7 @@ export const GROUPED_SCHEDULE_DATA = {
           type: 'Apresentação de Pôsteres',
           tag: 'WTDCC',
           tagColor: '#f97316',
+          timeOverride: '15:30 - 17:30',
           description: 'Sessão de Pôsteres do WTDCC (Iniciação Científica e TCC).',
           isHighlight: true,
         },
@@ -156,6 +166,20 @@ export const GROUPED_SCHEDULE_DATA = {
       ],
     },
     {
+      time: '17:00 - 18:30',
+      sessions: [
+        {
+          title: 'Seu aplicativo viralizou. E agora? Você decide se ele sobrevive.',
+          speaker: 'Especialistas em Engenharia de Software',
+          location: 'Auditório 2 (Hall 5R)',
+          type: 'Palestra de Engenharia de Software',
+          tag: null,
+          description: 'O que acontece quando o tráfego explode da noite para o dia? Estratégias reais de infraestrutura, mitigação de gargalos de banco de dados, observabilidade e tomada de decisão sob alta pressão.',
+          isHighlight: true,
+        },
+      ],
+    },
+    {
       time: '17:30 - 19:00',
       sessions: [
         {
@@ -168,6 +192,19 @@ export const GROUPED_SCHEDULE_DATA = {
           badgeNote: 'Aberto ao público',
           description: 'História, protagonismo científico e os horizontes da pesquisa em ciência da computação no Brasil.',
           isHighlight: true,
+        },
+      ],
+    },
+    {
+      time: '18:30 - 19:00',
+      isBreak: true,
+      sessions: [
+        {
+          title: 'Abertura Coffee',
+          speaker: 'Recepção & Confraternização',
+          location: 'Hall 5R',
+          type: 'Coffee Break',
+          description: 'Coffee break de boas-vindas e momento de networking e recepção dos participantes antes da Solenidade Oficial.',
         },
       ],
     },
@@ -387,7 +424,18 @@ Minibiografia das Ministrantes:
           isHighlight: true,
         },
         {
-    
+          title: 'HyperFlow',
+          speaker: 'Equipe Hyperflow',
+          location: 'Lab 4',
+          type: 'Workshop Hands-on',
+          tag: 'Patrocinador',
+          sponsorName: 'Hyperflow',
+          tagColor: '#00d2ff',
+          description: 'Sessão prática no laboratório Lab 4 com a equipe da Hyperflow sobre automação inteligente de processos, orquestração de fluxos e integração de modelos de IA.',
+          isSponsor: true,
+          isHighlight: true,
+        },
+        {
           title: 'SEBRAE pela sua Carreira Profissional',
           speaker: 'SEBRAE',
           location: 'Outros Espaços / Salas',
@@ -725,7 +773,7 @@ export default function ScheduleSection() {
           // Category / Tag filter
           if (tagFilter !== 'all') {
             if (tagFilter === 'Patrocinadores') {
-              const sponsorKeywords = ['bip', 'kanastra', 'bayer', 'aimirim'];
+              const sponsorKeywords = ['bip', 'kanastra', 'bayer', 'aimirim', 'hyperflow'];
               const sessionText = `${session.title || ''} ${session.speaker || ''} ${session.description || ''} ${session.sponsorName || ''}`.toLowerCase();
               const involvesSponsor = session.isSponsor || 
                                       session.tag === 'Patrocinador' || 
