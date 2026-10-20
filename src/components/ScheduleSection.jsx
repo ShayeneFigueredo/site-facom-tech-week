@@ -24,7 +24,7 @@ export const OFFICIAL_DAYS = [
 
 export const SCHEDULE_LEGEND = [
   { label: 'Patrocinadores', color: '#00d2ff', bg: 'rgba(0, 210, 255, 0.12)', border: 'rgba(0, 210, 255, 0.45)' },
-  { label: 'Meninas Digitais', color: '#f43f5e', bg: 'rgba(244, 63, 94, 0.12)', border: 'rgba(244, 63, 94, 0.45)' },
+  { label: 'Meninas na Computação', color: '#f43f5e', bg: 'rgba(244, 63, 94, 0.12)', border: 'rgba(244, 63, 94, 0.45)' },
   { label: 'WTDCC', color: '#f97316', bg: 'rgba(249, 115, 22, 0.12)', border: 'rgba(249, 115, 22, 0.45)' },
   { label: 'Aberto ao público', color: '#10b981', bg: 'rgba(16, 185, 129, 0.12)', border: 'rgba(16, 185, 129, 0.45)' },
 ];
@@ -114,11 +114,11 @@ export const GROUPED_SCHEDULE_DATA = {
           isHighlight: true,
         },
         {
-          title: 'Diálogo Meninas: #Include <Girls> e Gurias na Computação UNIPAMPA',
+          title: 'Diálogo Meninas na Computação: #Include <Girls> e Gurias na Computação UNIPAMPA',
           speaker: '#Include <Girls> & Gurias na Computação',
           location: 'Sala 1B126',
           type: 'Roda de Conversa',
-          tag: 'Meninas Digitais',
+          tag: 'Meninas na Computação',
           tagColor: '#f43f5e',
           timeOverride: '14:00 - 15:30',
           description: 'Troca de vivências, iniciativas de acolhimento e incentivo à presença feminina na computação.',
@@ -148,7 +148,7 @@ export const GROUPED_SCHEDULE_DATA = {
           speaker: 'Profa. Dra. Maria da Graça Campos Pimentel (ICMC / USP)',
           location: 'Auditório 1 (5R - AB)',
           type: 'Palestra Convidada',
-          tag: 'Meninas Digitais',
+          tag: 'Meninas na Computação',
           tagColor: '#f43f5e',
           badgeNote: 'Aberto ao público',
           description: 'História, protagonismo científico e os horizontes da pesquisa em ciência da computação no Brasil.',
@@ -251,13 +251,34 @@ export const GROUPED_SCHEDULE_DATA = {
           location: 'Auditório 1 & 2 (Hall 5R)',
           type: 'Recepção',
           tag: null,
-          description: 'Recepção dos participantes para a grade de palestras da tarde.',
+          description: 'Recepção dos participantes para a grade de palestras da tarde e início do minicurso online da LEVTY (13h30 às 15h30).',
         },
       ],
     },
     {
       time: '14:00 - 15:30',
       sessions: [
+        {
+          title: 'Metodologias ágeis: teoria e prática na LEVTY',
+          speaker: 'Izabela Brant & Samara Lobato (Agile Masters @ LEVTY)',
+          location: 'Online',
+          type: 'Minicurso Online',
+          tag: null,
+          timeOverride: '13:30 - 15:30',
+          badgeNote: 'Online (Ao Vivo)',
+          isHighlight: true,
+          description: `O minicurso “Metodologias ágeis: teoria e prática na LEVTY” tem o objetivo de discutir os conceitos teóricos, principalmente do framework Scrum, que orientam a gestão dos projetos dentro da empresa, e propor uma dinâmica prática, abordando a ferramenta do planning poker, para mostrar a aplicabilidade no dia a dia dos times de desenvolvimento de software.
+
+Duração (2 horas):
+• 45 minutos - parte teórica
+• 10 minutos - pausa
+• 45 minutos - dinâmica
+• 20 minutos - perguntas
+
+Minibiografia das Ministrantes:
+• Izabela Brant: Agile Master na LEVTY desde outubro de 2021. Formada em Engenharia de Sistemas pela UFMG, possui certificação PSM1 (Professional Scrum Master). Atua na gestão de times e de projetos dos setores de telecom e de finanças em grandes clientes como: Alloha, Master Internet e BS2.
+• Samara Lobato: Agile Master na LEVTY desde novembro de 2023. Formada em Letras pela UFMG, possui certificação PSM1 (Professional Scrum Master) e KSD (Kanban System Design). Atua na gestão de times e de projetos do setor industrial em grandes clientes como: Axia Energia, Certisign, CSN, Petrobras, Serasa, entre outros.`,
+        },
         {
           title: 'RESERVA BIP - Sessão Corporativa de Tecnologia',
           speaker: 'Equipe de Consultoria & Engenharia BIP',
@@ -344,7 +365,7 @@ export const GROUPED_SCHEDULE_DATA = {
           speaker: 'Daniela (LuizaLabs)',
           location: 'Auditório 2 (Hall 5R)',
           type: 'Palestra de Cibersegurança',
-          tag: 'Meninas Digitais',
+          tag: 'Meninas na Computação',
           tagColor: '#f43f5e',
           description: 'Vulnerabilidades em pipelines de modelos de linguagem, proteção de dados e governança em IA corporativa.',
           isHighlight: true,
@@ -377,11 +398,11 @@ export const GROUPED_SCHEDULE_DATA = {
       time: '19:00 - 20:30',
       sessions: [
         {
-          title: 'Painel do VI Meninas Computação - Empreendedorismo Feminino na Computação',
+          title: 'Painel do VI Meninas na Computação - Empreendedorismo Feminino na Computação',
           speaker: 'Maria Camila & Convidadas',
           location: 'Auditório 1 (5R - AB)',
           type: 'Painel Especial',
-          tag: 'Meninas Digitais',
+          tag: 'Meninas na Computação',
           tagColor: '#f43f5e',
           description: 'Mulheres empreendedoras compartilhando desafios, trajetórias e estratégias de liderança no setor de tecnologia.',
           isHighlight: true,
@@ -1599,6 +1620,7 @@ export default function ScheduleSection() {
                                 fontSize: '0.88rem',
                                 margin: 0,
                                 lineHeight: 1.6,
+                                whiteSpace: 'pre-line',
                                 fontFamily: "'Montserrat', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif",
                               }}
                             >
