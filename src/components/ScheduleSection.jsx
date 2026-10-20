@@ -180,7 +180,7 @@ export const GROUPED_SCHEDULE_DATA = {
           location: 'Auditório 1 & 2 (Hall 5R)',
           type: 'Sessão Solene',
           tag: null,
-          description: 'Abertura oficial solene do evento com representantes acadêmicos e do setor produtivo de tecnologia.',
+          description: 'Abertura oficial solene do evento com representantes acadêmicos e do setor produtivo de tecnologia. Contará com uma apresentação especial da Orquestra Popular do Cerrado.',
           isHighlight: true,
         },
       ],
