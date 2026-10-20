@@ -19,7 +19,7 @@ export default function Navbar({ onOpenModal }) {
     { name: 'Sobre', href: '#sobre' },
     { name: 'Trilhas', href: '#trilhas' },
     { name: 'Programação', href: '#programacao' },
-    { name: 'Palestrantes', href: '#palestrantes' },
+    { name: 'Aplicativo', href: '#aplicativo' },
     { name: 'Ingressos', href: '#ingressos' },
     { name: 'FAQ', href: '#faq' },
   ];

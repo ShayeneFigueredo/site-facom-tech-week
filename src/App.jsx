@@ -5,7 +5,7 @@ import CountdownSection from './components/CountdownSection.jsx';
 import TracksSection from './components/TracksSection.jsx';
 import StatsSection from './components/StatsSection.jsx';
 import ScheduleSection from './components/ScheduleSection.jsx';
-import SpeakersSection from './components/SpeakersSection.jsx';
+import AppSection from './components/AppSection.jsx';
 import TicketsSection from './components/TicketsSection.jsx';
 import FaqSection from './components/FaqSection.jsx';
 import Footer from './components/Footer.jsx';
@@ -25,7 +25,7 @@ export default function App() {
         <StatsSection />
         <TracksSection />
         <ScheduleSection />
-        <SpeakersSection />
+        <AppSection />
         <TicketsSection symplaUrl={symplaUrl} />
         <FaqSection />
       </main>

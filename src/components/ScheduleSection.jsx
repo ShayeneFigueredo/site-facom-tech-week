@@ -646,125 +646,17 @@ Minibiografia das Ministrantes:
   // ========================== DIA 04 (HACKATHON) ==========================
   4: [
     {
-      time: '08:00 - 09:00',
+      time: '08:00 - 22:00',
       sessions: [
         {
-          title: 'Credenciamento, Check-in & Café dos Hackers',
-          speaker: 'Comissão do Hackathon & Mentores',
-          location: 'Auditório 1 & 2 (Hall 5R)',
-          type: 'Check-in',
-          tag: null,
-          description: 'Confirmação presencial dos times inscritos, retirada dos kits de participação e acomodação nas bancadas.',
-        },
-      ],
-    },
-    {
-      time: '09:00 - 09:30',
-      sessions: [
-        {
-          title: 'Kick-off Oficial & Início da Maratona Hackathon',
-          speaker: 'Comissão Organizadora & Patrocinadores',
-          location: 'Auditório 1 & 2 (Hall 5R)',
-          type: 'Lançamento',
+          title: 'Hackathon',
+          speaker: 'Maratona de Programação & Inovação',
+          location: 'SEBRAE',
+          type: 'Hackathon',
           tag: 'Aberto ao público',
           tagColor: '#10b981',
-          description: 'Início oficial do cronômetro, liberação dos repositórios e instruções de suporte técnico.',
-          isHighlight: true,
-        },
-      ],
-    },
-    {
-      time: '09:30 - 12:30',
-      sessions: [
-        {
-          title: 'Sprint 1: Ideação, Arquitetura e 1ª Rodada de Mentorias',
-          speaker: 'Mentores Técnicos & Especialistas de Negócios',
-          location: 'Laboratórios & Salas de Hacking',
-          type: 'Mentoria Hands-on',
-          tag: null,
-          description: 'Alinhamento da ideia inicial, modelagem do banco de dados e primeiras validações com profissionais do mercado.',
-        },
-      ],
-    },
-    {
-      time: '12:30 - 13:30',
-      isBreak: true,
-      sessions: [
-        {
-          title: 'Almoço dos Hackers (Open Food no Local)',
-          speaker: 'Alimentação Oferecida pelo Evento',
-          location: 'Área de Convivência',
-          type: 'Intervalo',
-          description: 'Almoço reforçado para as equipes manterem o foco total no desenvolvimento.',
-        },
-      ],
-    },
-    {
-      time: '13:30 - 18:00',
-      sessions: [
-        {
-          title: 'Sprint 2: Desenvolvimento do MVP e 2ª Rodada de Mentorias',
-          speaker: 'Mentores de Produto, UX e Engenharia',
-          location: 'Laboratórios & Salas de Hacking',
-          type: 'Hacking Intenso',
-          tag: null,
-          description: 'Codificação intensiva, integração das APIs das empresas parceiras e construção do protótipo navegável.',
-          isHighlight: true,
-        },
-      ],
-    },
-    {
-      time: '18:00 - 18:30',
-      isBreak: true,
-      sessions: [
-        {
-          title: 'Coffee Break & Mentoria Rápida de Pitch',
-          speaker: 'Especialistas de Oratória e Pitch',
-          location: 'Espaço Hackathon',
-          type: 'Mentoria',
-          description: 'Dicas essenciais para sintetizar o valor do projeto em uma apresentação clara e impactante de 3 minutos.',
-        },
-      ],
-    },
-    {
-      time: '18:30 - 19:30',
-      sessions: [
-        {
-          title: 'Sprint Final & Congelamento de Código (Code Freeze)',
-          speaker: 'Todos os Times',
-          location: 'Ambiente de Submissão',
-          type: 'Deadline',
-          tag: null,
-          description: '19:30 em ponto: encerramento dos envios de repositórios, links e slides na plataforma oficial.',
-          isHighlight: true,
-        },
-      ],
-    },
-    {
-      time: '19:30 - 21:00',
-      sessions: [
-        {
-          title: 'Demo Day & Apresentação dos Pitches diante da Banca',
-          speaker: 'Equipes Finalistas & Banca Julgadora',
-          location: 'Auditório 1 & 2 (Hall 5R)',
-          type: 'Apresentação Final',
-          tag: 'Aberto ao público',
-          tagColor: '#10b981',
-          description: 'Apresentação aberta ao público no palco principal dos melhores projetos para os avaliadores.',
-          isHighlight: true,
-        },
-      ],
-    },
-    {
-      time: '21:00 - 22:00',
-      sessions: [
-        {
-          title: 'Cerimônia de Premiação dos Vencedores & Encerramento Geral',
-          speaker: 'Comissão FACOM TechWeek & Patrocinadores',
-          location: 'Auditório 1 & 2 (Hall 5R)',
-          type: 'Premiação',
-          tag: null,
-          description: 'Anúncio dos três melhores projetos, entrega de troféus, prêmios em dinheiro e fechamento da edição 2026.',
+          badgeNote: 'Aberto ao público',
+          description: 'Maratona presencial de ideação, prototipação e desenvolvimento de soluções tecnológicas, com mentorias de especialistas, apresentação de pitches diante da banca e premiação.',
           isHighlight: true,
         },
       ],
