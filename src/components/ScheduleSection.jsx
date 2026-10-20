@@ -142,6 +142,20 @@ export const GROUPED_SCHEDULE_DATA = {
       ],
     },
     {
+      time: '16:30 - 18:00',
+      sessions: [
+        {
+          title: 'Palestra Magna: Dra. Daniela Ushizima (Berkeley Institute for Data Science)',
+          speaker: 'Daniela Ushizima, PhD',
+          location: 'Auditório 1 (5R-AB)',
+          type: 'Palestra',
+          tag: null,
+          description: 'Pesquisa avançada em ciência de dados e inteligência artificial pelo renomado instituto da UC Berkeley.',
+          isHighlight: true,
+        },
+      ],
+    },
+    {
       time: '17:30 - 19:00',
       sessions: [
         {
@@ -422,6 +436,15 @@ Minibiografia das Ministrantes:
     {
       time: '20:30 - 22:00',
       sessions: [
+        {
+          title: 'Carreira na AWS e a Influência da IA',
+          speaker: 'Helio Soares',
+          location: 'Auditório 1 (5R-AB)',
+          type: 'Palestra',
+          tag: null,
+          description: 'A influência da Inteligência Artificial no mercado e nas carreiras dentro da AWS.',
+          isHighlight: true,
+        },
         {
           title: 'Lucas Democh IA - O Estado da Arte em Inteligência Artificial',
           speaker: 'Lucas Democh',
